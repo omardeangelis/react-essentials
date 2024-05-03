@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 const exampleArray = [1, 2, 3, 4, 5]
 const exampleObject = { nome: `David`, cognome: `Parenzo` }
 const complexArray = [
