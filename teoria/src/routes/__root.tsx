@@ -1,12 +1,15 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
-import { TanStackRouterDevtools } from "@tanstack/router-devtools"
+import { Suspense } from "react"
 import { RootLayout } from "@/components/layout/RootLayout"
+import { TanStackRouterDevtools } from "@/components/devtools/TanstackDevTools"
 
 export const Route = createRootRoute({
   component: () => (
     <RootLayout>
       <Outlet />
-      <TanStackRouterDevtools />
+      <Suspense>
+        <TanStackRouterDevtools />
+      </Suspense>
     </RootLayout>
   ),
 })
