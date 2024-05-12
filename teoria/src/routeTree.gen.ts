@@ -14,6 +14,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as CapitoliImport } from './routes/_capitoli'
+import { Route as CapitoliCapitolo1PropsObjectIndexImport } from './routes/_capitoli/capitolo1/props-object/index'
 import { Route as CapitoliCapitolo1PrimoComponenteIndexImport } from './routes/_capitoli/capitolo1/primo-componente/index'
 import { Route as CapitoliCapitolo1JsInJsxIndexImport } from './routes/_capitoli/capitolo1/js-in-jsx/index'
 import { Route as CapitoliCapitolo1HandleEventsIndexImport } from './routes/_capitoli/capitolo1/handle-events/index'
@@ -45,6 +46,12 @@ const CapitoliCapitolo1IndexLazyRoute = CapitoliCapitolo1IndexLazyImport.update(
 ).lazy(() =>
   import('./routes/_capitoli/capitolo1/index.lazy').then((d) => d.Route),
 )
+
+const CapitoliCapitolo1PropsObjectIndexRoute =
+  CapitoliCapitolo1PropsObjectIndexImport.update({
+    path: '/capitolo1/props-object/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
 
 const CapitoliCapitolo1PrimoComponenteIndexRoute =
   CapitoliCapitolo1PrimoComponenteIndexImport.update({
@@ -92,6 +99,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo1PrimoComponenteIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo1/props-object/': {
+      preLoaderRoute: typeof CapitoliCapitolo1PropsObjectIndexImport
+      parentRoute: typeof CapitoliImport
+    }
   }
 }
 
@@ -104,6 +115,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo1HandleEventsIndexRoute,
     CapitoliCapitolo1JsInJsxIndexRoute,
     CapitoliCapitolo1PrimoComponenteIndexRoute,
+    CapitoliCapitolo1PropsObjectIndexRoute,
   ]),
 ])
 

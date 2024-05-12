@@ -20,10 +20,10 @@ export const routesMaps = {
     //   path: `/capitolo1/conditional-rendering`,
     //   label: `Conditional rendering`,
     // },
-    // {
-    //   path: `/capitolo1/props-object`,
-    //   label: `Props object`,
-    // },
+    {
+      path: `/capitolo1/props-object`,
+      label: `Props object`,
+    },
   ],
 }
 

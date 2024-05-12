@@ -55,7 +55,7 @@ const Index = () => (
 
     <div className="mt-8">
       <h2 className="text-lg font-bold">
-        Tutto quello che non avevi idea si potesse fare con React
+        Altri modi che non ti interessano per usare React
       </h2>
     </div>
     <div className="mt-8 grid grid-cols-2 gap-4">
