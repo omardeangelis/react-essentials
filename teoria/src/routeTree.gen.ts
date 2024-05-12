@@ -18,6 +18,7 @@ import { Route as CapitoliCapitolo1PropsObjectIndexImport } from './routes/_capi
 import { Route as CapitoliCapitolo1PrimoComponenteIndexImport } from './routes/_capitoli/capitolo1/primo-componente/index'
 import { Route as CapitoliCapitolo1JsInJsxIndexImport } from './routes/_capitoli/capitolo1/js-in-jsx/index'
 import { Route as CapitoliCapitolo1HandleEventsIndexImport } from './routes/_capitoli/capitolo1/handle-events/index'
+import { Route as CapitoliCapitolo1ConditionalRenderingIndexImport } from './routes/_capitoli/capitolo1/conditional-rendering/index'
 
 // Create Virtual Routes
 
@@ -71,6 +72,12 @@ const CapitoliCapitolo1HandleEventsIndexRoute =
     getParentRoute: () => CapitoliRoute,
   } as any)
 
+const CapitoliCapitolo1ConditionalRenderingIndexRoute =
+  CapitoliCapitolo1ConditionalRenderingIndexImport.update({
+    path: '/capitolo1/conditional-rendering/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -85,6 +92,10 @@ declare module '@tanstack/react-router' {
     }
     '/_capitoli/capitolo1/': {
       preLoaderRoute: typeof CapitoliCapitolo1IndexLazyImport
+      parentRoute: typeof CapitoliImport
+    }
+    '/_capitoli/capitolo1/conditional-rendering/': {
+      preLoaderRoute: typeof CapitoliCapitolo1ConditionalRenderingIndexImport
       parentRoute: typeof CapitoliImport
     }
     '/_capitoli/capitolo1/handle-events/': {
@@ -112,6 +123,7 @@ export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   CapitoliRoute.addChildren([
     CapitoliCapitolo1IndexLazyRoute,
+    CapitoliCapitolo1ConditionalRenderingIndexRoute,
     CapitoliCapitolo1HandleEventsIndexRoute,
     CapitoliCapitolo1JsInJsxIndexRoute,
     CapitoliCapitolo1PrimoComponenteIndexRoute,

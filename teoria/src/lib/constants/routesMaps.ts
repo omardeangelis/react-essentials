@@ -16,10 +16,10 @@ export const routesMaps = {
       path: `/capitolo1/handle-events`,
       label: `Gestione eventi`,
     },
-    // {
-    //   path: `/capitolo1/conditional-rendering`,
-    //   label: `Conditional rendering`,
-    // },
+    {
+      path: `/capitolo1/conditional-rendering`,
+      label: `Conditional rendering`,
+    },
     {
       path: `/capitolo1/props-object`,
       label: `Props object`,
