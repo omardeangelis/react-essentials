@@ -25,6 +25,16 @@ export const routesMaps = {
       path: `/capitolo1/conditional-rendering`,
       label: `Conditional rendering`,
     },
+    {
+      path: `/capitolo1/next`,
+      label: `Verso il Capitolo 2`,
+    },
+  ],
+  capitolo2: [
+    {
+      path: `/capitolo2`,
+      label: `Introduzione e Regole`,
+    },
   ],
 }
 

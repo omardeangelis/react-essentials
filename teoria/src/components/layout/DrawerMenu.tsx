@@ -34,6 +34,18 @@ export const SheetMenu = () => (
             </li>
           </Link>
         </SheetClose>
+        <div className="mt-4" />
+        <SheetClose asChild>
+          <Link to="/capitolo2">
+            <li className="bg-card p-4 rounded-lg border hover:bg-blue-950">
+              <p>React API</p>
+              <p className="text-sm text-neutral-400 mt-2">
+                Impara a usare gli hooks, effects e references e crea
+                un'applicazione
+              </p>
+            </li>
+          </Link>
+        </SheetClose>
       </ul>
     </SheetContent>
   </Sheet>
