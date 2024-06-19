@@ -5,7 +5,7 @@ const exampleArray = [1, 2, 3, 4, 5]
 const exampleObject = { nome: `David`, cognome: `Parenzo` }
 const complexArray = [
   { nome: `Giuseppe`, cognome: `Cruciani` },
-  { nome: `Filippo`, cognome: `Minnocci` },
+  { nome: `Massimiliano`, cognome: `Minnocci` },
 ]
 
 export const JSinJSXInizio = () => {
