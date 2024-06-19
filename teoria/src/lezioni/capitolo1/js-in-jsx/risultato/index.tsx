@@ -41,13 +41,13 @@ export const JSinJSXRisultato = () => {
 
       <div className="space-y-2">
         <h2 className="text-lg">Array complesso</h2>
-        <p className="text-neutral-400">
+        <div className="text-neutral-400">
           {complexArray.map((persona) => (
             <p key={persona.cognome}>
               {persona.nome} {persona.cognome}
             </p>
           ))}
-        </p>
+        </div>
       </div>
     </div>
   )

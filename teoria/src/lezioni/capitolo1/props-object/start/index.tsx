@@ -1,3 +1,20 @@
+const GenericAvatar = () => (
+  <div className="flex items-center">
+    <div className="w-12 h-12 rounded-full bg-neutral-200">
+      <img
+        src="https://avatars.githubusercontent.com/u/59423080?v=4"
+        alt="Avatar"
+        className="w-12 h-12 rounded-full"
+      />
+    </div>
+
+    <div className="ml-4">
+      <h2 className="text-lg font-bold">David Parenzo</h2>
+      <p className="text-neutral-500">Conduttore Radiofonico</p>
+    </div>
+  </div>
+)
+
 const avatars = [
   {
     img: `https://avatars.githubusercontent.com/u/63757250?v=4`,
@@ -24,21 +41,4 @@ const avatars2 = [
   },
 ]
 
-const CustomAvatar = () => (
-  <div className="flex items-center">
-    <div className="w-12 h-12 rounded-full bg-neutral-200">
-      <img
-        src="https://avatars.githubusercontent.com/u/59423080?v=4"
-        alt="Avatar"
-        className="w-12 h-12 rounded-full"
-      />
-    </div>
-
-    <div className="ml-4">
-      <h2 className="text-lg font-bold">David Parenzo</h2>
-      <p className="text-neutral-500">Conduttore Radiofonico</p>
-    </div>
-  </div>
-)
-
-export const InizioComponentWithProps = () => <CustomAvatar />
+export const InizioComponentWithProps = () => <GenericAvatar />

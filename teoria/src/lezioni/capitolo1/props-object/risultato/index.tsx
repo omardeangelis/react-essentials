@@ -23,10 +23,6 @@ type AvatarProps = {
   role: string
 }
 
-type AvatarWithProps = AvatarProps & GenericDivProps
-type ExtendedAvatarProps = React.ComponentProps<typeof GenericAvatar> &
-  AvatarProps
-
 const avatars: AvatarProps[] = [
   {
     img: `https://avatars.githubusercontent.com/u/63757250?v=4`,
@@ -40,7 +36,7 @@ const avatars: AvatarProps[] = [
   },
 ]
 
-const avatars2: AvatarWithProps[] = [
+const avatars2: AvatarProps[] = [
   {
     img: `https://avatars.githubusercontent.com/u/63757250?v=4`,
     name: `N'arta vorta io`,
@@ -52,6 +48,10 @@ const avatars2: AvatarWithProps[] = [
     role: `React Developer`,
   },
 ]
+
+type AvatarWithProps = AvatarProps & GenericDivProps
+type ExtendedAvatarProps = React.ComponentProps<typeof GenericAvatar> &
+  AvatarProps
 
 const GenericAvatarWithProps = ({
   className,
