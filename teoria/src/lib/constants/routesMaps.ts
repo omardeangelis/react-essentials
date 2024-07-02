@@ -35,6 +35,10 @@ export const routesMaps = {
       path: `/capitolo2`,
       label: `Introduzione e Regole`,
     },
+    {
+      path: `/capitolo2/use-state`,
+      label: `Aggiornare la UI`,
+    },
   ],
 }
 

@@ -9,7 +9,7 @@ const complexArray = [
   { nome: `Massimiliano`, cognome: `Minnocci` },
 ]
 
-export const JSinJSXInizio = () => {
+export const JSinJSXRisultato = () => {
   const risultato = 1 + 1
   return (
     <div className="space-y-4 pt-6">

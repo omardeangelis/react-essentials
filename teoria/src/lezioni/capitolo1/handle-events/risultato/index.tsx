@@ -33,7 +33,7 @@ const handleFunctionWithParamsAndEvent =
     alert(params)
   }
 
-export const HandleEventsInizio = () => (
+export const HandleEventsResults = () => (
   <div className="pt-6">
     <div className="grid grid-cols-2 gap-4">
       <Card className="flex items-center justify-between bg-background">

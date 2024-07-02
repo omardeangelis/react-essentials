@@ -91,7 +91,7 @@ const GenericAvatarWithChildren = ({
   </div>
 )
 
-export const InizioComponentWithProps = () => (
+export const RisultatoComponentWithProps = () => (
   <>
     <GenericAvatar className="bg-red-600" />
     <div className="mt-4 grid grid-cols-2 gap-4">
