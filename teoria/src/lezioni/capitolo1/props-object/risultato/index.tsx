@@ -31,8 +31,8 @@ const avatars: AvatarProps[] = [
   },
   {
     img: `https://avatars.githubusercontent.com/u/63757250?v=4`,
-    name: `Sempre io`,
-    role: `React Developer`,
+    name: `Tu, Spettatore!`,
+    role: `Iscriversi al canale!`,
   },
 ]
 
@@ -50,19 +50,20 @@ const avatars2: AvatarProps[] = [
 ]
 
 type AvatarWithProps = AvatarProps & GenericDivProps
-type ExtendedAvatarProps = React.ComponentProps<typeof GenericAvatar> &
+
+type AvatarAdvancedProps = React.ComponentProps<typeof GenericAvatar> &
   AvatarProps
 
 const GenericAvatarWithProps = ({
-  className,
   img,
-  name,
   role,
+  name,
+  className,
   ...rest
-}: AvatarWithProps | ExtendedAvatarProps) => (
+}: AvatarWithProps | AvatarAdvancedProps) => (
   <div {...rest} className={`${className} flex items-center`}>
     <div className="w-12 h-12 rounded-full bg-neutral-200">
-      <img src={img} alt={name} className="w-12 h-12 rounded-full" />
+      <img src={img} alt="Avatar" className="w-12 h-12 rounded-full" />
     </div>
 
     <div className="ml-4">
@@ -72,19 +73,17 @@ const GenericAvatarWithProps = ({
   </div>
 )
 
-type AvatarWithoutNameAndRoleProps = Omit<AvatarProps, "name" | "role"> &
+type AvatarWithoutNameAndRole = Omit<AvatarProps, "name" | "role"> &
   GenericDivProps
+type AvatarWithChildrenProps = React.PropsWithChildren<AvatarWithoutNameAndRole>
 
-type AvatarWithChildrenProps =
-  React.PropsWithChildren<AvatarWithoutNameAndRoleProps>
-
-const AvatarWithChildren: React.FC<AvatarWithChildrenProps> = ({
-  children,
+const GenericAvatarWithChildren = ({
   img,
+  children,
   className,
   ...rest
-}) => (
-  <div {...rest} className={`${className} flex items-center`}>
+}: AvatarWithChildrenProps) => (
+  <div {...rest} className={`${className} flex flex-col items-center`}>
     <div className="w-12 h-12 rounded-full bg-neutral-200">
       <img src={img} alt="Avatar" className="w-12 h-12 rounded-full" />
     </div>
@@ -92,30 +91,34 @@ const AvatarWithChildren: React.FC<AvatarWithChildrenProps> = ({
   </div>
 )
 
-export const RisultatoComponentWithProps = () => (
+export const InizioComponentWithProps = () => (
   <>
-    <GenericAvatar />
+    <GenericAvatar className="bg-red-600" />
     <div className="mt-4 grid grid-cols-2 gap-4">
       {avatars.map((avatar) => (
         <GenericAvatarWithProps
-          className="bg-neutral-800 p-4 rounded-lg"
-          key={avatar.img}
+          key={avatar.name}
           {...avatar}
+          className="p-4 bg-neutral-800 rounded-md"
         />
       ))}
     </div>
     <div className="mt-4 grid grid-cols-2 gap-4">
       {avatars2.map((avatar) => (
-        <AvatarWithChildren
-          className="bg-lime-950 p-4 rounded-lg"
-          key={avatar.img}
-          {...avatar}
+        <GenericAvatarWithChildren
+          key={avatar.name}
+          img={avatar.img}
+          className="p-4 bg-neutral-800 rounded-md"
         >
           <div className="ml-4">
             <h2 className="text-lg font-bold">{avatar.name}</h2>
             <p className="text-neutral-500">{avatar.role}</p>
           </div>
-        </AvatarWithChildren>
+          <div className="ml-4">
+            <h2 className="text-lg font-bold">{avatar.name}</h2>
+            <p className="text-neutral-500">{avatar.role}</p>
+          </div>
+        </GenericAvatarWithChildren>
       ))}
     </div>
   </>

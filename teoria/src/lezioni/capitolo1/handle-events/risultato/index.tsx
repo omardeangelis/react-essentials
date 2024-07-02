@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
-import React from "react"
 import {
   Card,
   CardContent,
@@ -11,12 +10,12 @@ import {
 import { Button } from "@/components/ui/button"
 
 const handleFunction = () => {
-  alert(`Function`)
+  alert(`Registrati al Canale!`)
 }
 
 const handleFuctionWithEvent = (event: React.MouseEvent<HTMLButtonElement>) => {
   console.log(event.target)
-  alert(`Function with event`)
+  alert(`Registrati al Canale!`)
 }
 
 const handleFunctionWithParams = (param: string) => {
@@ -24,6 +23,7 @@ const handleFunctionWithParams = (param: string) => {
 }
 
 const wrongHandleFunctionWithParams = (param: string) => {
+  // alert(param)
   console.log(param)
 }
 
@@ -33,10 +33,10 @@ const handleFunctionWithParamsAndEvent =
     alert(params)
   }
 
-export const HandleEventsResults = () => (
+export const HandleEventsInizio = () => (
   <div className="pt-6">
     <div className="grid grid-cols-2 gap-4">
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Inline</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -44,10 +44,10 @@ export const HandleEventsResults = () => (
           </CardDescription>
         </CardHeader>
         <CardContent className="py-0">
-          <Button onClick={() => alert(`Inline`)}>Esegui</Button>
+          <Button onClick={() => alert(`Evviva Evviva`)}>Esegui</Button>
         </CardContent>
       </Card>
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Function</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -58,7 +58,7 @@ export const HandleEventsResults = () => (
           <Button onClick={handleFunction}>Esegui</Button>
         </CardContent>
       </Card>
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Function with event</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -70,7 +70,7 @@ export const HandleEventsResults = () => (
         </CardContent>
       </Card>
 
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Wrong Function With Params</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -84,7 +84,7 @@ export const HandleEventsResults = () => (
           </Button>
         </CardContent>
       </Card>
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Function with params</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -92,12 +92,12 @@ export const HandleEventsResults = () => (
           </CardDescription>
         </CardHeader>
         <CardContent className="py-0">
-          <Button onClick={() => handleFunctionWithParams(`Params`)}>
+          <Button onClick={() => handleFunctionWithParams(`evviva`)}>
             Esegui
           </Button>
         </CardContent>
       </Card>
-      <Card className="flex items-center justify-between">
+      <Card className="flex items-center justify-between bg-background">
         <CardHeader>
           <CardTitle>Function with params and event</CardTitle>
           <CardDescription className="text-neutral-400">
@@ -106,7 +106,7 @@ export const HandleEventsResults = () => (
           </CardDescription>
         </CardHeader>
         <CardContent className="py-0">
-          <Button onClick={handleFunctionWithParamsAndEvent(`Params`)}>
+          <Button onClick={handleFunctionWithParamsAndEvent(`evviva evviva`)}>
             Esegui
           </Button>
         </CardContent>
