@@ -16,6 +16,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as CapitoliImport } from './routes/_capitoli'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseStateIndexImport } from './routes/_capitoli/capitolo2/use-state/index'
+import { Route as CapitoliCapitolo2StateAttentiIndexImport } from './routes/_capitoli/capitolo2/state-attenti/index'
 import { Route as CapitoliCapitolo1PropsObjectIndexImport } from './routes/_capitoli/capitolo1/props-object/index'
 import { Route as CapitoliCapitolo1PrimoComponenteIndexImport } from './routes/_capitoli/capitolo1/primo-componente/index'
 import { Route as CapitoliCapitolo1JsInJsxIndexImport } from './routes/_capitoli/capitolo1/js-in-jsx/index'
@@ -68,6 +69,12 @@ const CapitoliCapitolo1NextLazyRoute = CapitoliCapitolo1NextLazyImport.update({
 const CapitoliCapitolo2UseStateIndexRoute =
   CapitoliCapitolo2UseStateIndexImport.update({
     path: '/capitolo2/use-state/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo2StateAttentiIndexRoute =
+  CapitoliCapitolo2StateAttentiIndexImport.update({
+    path: '/capitolo2/state-attenti/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -145,6 +152,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo1PropsObjectIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo2/state-attenti/': {
+      preLoaderRoute: typeof CapitoliCapitolo2StateAttentiIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo2/use-state/': {
       preLoaderRoute: typeof CapitoliCapitolo2UseStateIndexImport
       parentRoute: typeof CapitoliImport
@@ -165,6 +176,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo1JsInJsxIndexRoute,
     CapitoliCapitolo1PrimoComponenteIndexRoute,
     CapitoliCapitolo1PropsObjectIndexRoute,
+    CapitoliCapitolo2StateAttentiIndexRoute,
     CapitoliCapitolo2UseStateIndexRoute,
   ]),
 ])

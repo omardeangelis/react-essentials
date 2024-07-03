@@ -78,4 +78,25 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = `CardFooter`
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+const ExampleCard = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <Card ref={ref} className={cn(`w-full`, className)} {...props}>
+    <CardContent className="flex justify-between items-center py-3">
+      {props.children}
+    </CardContent>
+  </Card>
+))
+
+ExampleCard.displayName = `ExampleCard`
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  ExampleCard,
+}

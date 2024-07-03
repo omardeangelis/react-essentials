@@ -39,6 +39,10 @@ export const routesMaps = {
       path: `/capitolo2/use-state`,
       label: `Aggiornare la UI`,
     },
+    {
+      path: `/capitolo2/state-attenti`,
+      label: `State, Attenti`,
+    },
   ],
 }
 
