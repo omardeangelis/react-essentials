@@ -8,6 +8,7 @@ import {
 } from "@/components/layout/LessonTabs"
 import { StateVirgolaAttentiRisultato } from "@/lezioni/capitolo2/state-attenti/result"
 import { Button } from "@/components/ui/button"
+import { StateVirgolaAttentiInizio } from "@/lezioni/capitolo2/state-attenti/start"
 
 export const Route = createFileRoute(`/_capitoli/capitolo2/state-attenti/`)({
   component: () => (
@@ -38,7 +39,7 @@ export const Route = createFileRoute(`/_capitoli/capitolo2/state-attenti/`)({
       <LessonTabs
         className="mt-8"
         risultato={<StateVirgolaAttentiRisultato />}
-        start={<StateVirgolaAttentiRisultato />}
+        start={<StateVirgolaAttentiInizio />}
       />
     </div>
   ),
