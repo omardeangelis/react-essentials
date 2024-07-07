@@ -41,7 +41,7 @@ export const Route = createFileRoute(`/_capitoli/capitolo2/`)({
       <ul className="mt-4 list-disc list-inside">
         <li>
           <a
-            href="https://react.dev/reference/react/hooks"
+            href="https://react.dev/reference/rules/rules-of-hooks"
             target="_blank"
             rel="noreferrer"
             className="text-blue-400 hover:underline"

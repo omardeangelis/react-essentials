@@ -79,6 +79,7 @@ const StateWithDelay = () => {
   const increment = () => {
     setState(state + 1)
     setTimeout(() => {
+      setState(state + 1)
       alert(state)
       setHasTryed(true)
     }, 3000)
@@ -114,7 +115,7 @@ const AzzEComeSiFa = () => {
   const increment = () => {
     setState((n) => n + 1)
     setState((n) => n + 1)
-    // alert(state)
+    alert(state)
     setState((n) => n + 1)
     setHasTryed(true)
   }
@@ -150,10 +151,10 @@ const AAAHoCapito = () => {
     setState(state + 5)
     setState((n) => n + 1)
     setState((n) => {
-      // eslint-disable-next-line no-console
-      console.log(n + 1)
+      console.log(n, state)
       return n + 1
     })
+    setState(42)
     setHasTryed(true)
   }
 
