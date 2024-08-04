@@ -43,6 +43,14 @@ export const routesMaps = {
       path: `/capitolo2/state-attenti`,
       label: `State, Attenti`,
     },
+    {
+      path: `/capitolo2/state-as-object`,
+      label: `Gli oggetti come stato`,
+    },
+    {
+      path: `/capitolo2/state-tips/`,
+      label: `Gestione Avanzata`,
+    },
   ],
 }
 

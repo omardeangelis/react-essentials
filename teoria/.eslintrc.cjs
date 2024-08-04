@@ -36,7 +36,6 @@ module.exports = {
         "allowTaggedTemplates": true,
       },
     ],
-    "no-console": ["warn", { "allow": ["warn"] }],
     "no-use-before-define": 0,
     "spaced-comment": [
       2,
@@ -61,7 +60,7 @@ module.exports = {
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/ban-ts-comment": 0,
-    "no-console": ["warn", { "allow": ["warn"] }],
+    "no-console": "off",
     "spaced-comment": [
       2,
       "always",
