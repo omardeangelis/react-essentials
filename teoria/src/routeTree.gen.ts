@@ -19,6 +19,7 @@ import { Route as CapitoliCapitolo2UseStateIndexImport } from './routes/_capitol
 import { Route as CapitoliCapitolo2StateTipsIndexImport } from './routes/_capitoli/capitolo2/state-tips/index'
 import { Route as CapitoliCapitolo2StateAttentiIndexImport } from './routes/_capitoli/capitolo2/state-attenti/index'
 import { Route as CapitoliCapitolo2StateAsObjectIndexImport } from './routes/_capitoli/capitolo2/state-as-object/index'
+import { Route as CapitoliCapitolo2ReducerIndexImport } from './routes/_capitoli/capitolo2/reducer/index'
 import { Route as CapitoliCapitolo1PropsObjectIndexImport } from './routes/_capitoli/capitolo1/props-object/index'
 import { Route as CapitoliCapitolo1PrimoComponenteIndexImport } from './routes/_capitoli/capitolo1/primo-componente/index'
 import { Route as CapitoliCapitolo1JsInJsxIndexImport } from './routes/_capitoli/capitolo1/js-in-jsx/index'
@@ -89,6 +90,12 @@ const CapitoliCapitolo2StateAttentiIndexRoute =
 const CapitoliCapitolo2StateAsObjectIndexRoute =
   CapitoliCapitolo2StateAsObjectIndexImport.update({
     path: '/capitolo2/state-as-object/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo2ReducerIndexRoute =
+  CapitoliCapitolo2ReducerIndexImport.update({
+    path: '/capitolo2/reducer/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -166,6 +173,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo1PropsObjectIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo2/reducer/': {
+      preLoaderRoute: typeof CapitoliCapitolo2ReducerIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo2/state-as-object/': {
       preLoaderRoute: typeof CapitoliCapitolo2StateAsObjectIndexImport
       parentRoute: typeof CapitoliImport
@@ -198,6 +209,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo1JsInJsxIndexRoute,
     CapitoliCapitolo1PrimoComponenteIndexRoute,
     CapitoliCapitolo1PropsObjectIndexRoute,
+    CapitoliCapitolo2ReducerIndexRoute,
     CapitoliCapitolo2StateAsObjectIndexRoute,
     CapitoliCapitolo2StateAttentiIndexRoute,
     CapitoliCapitolo2StateTipsIndexRoute,
