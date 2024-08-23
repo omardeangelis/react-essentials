@@ -164,7 +164,6 @@ const initialTasks = [
   { id: 0, text: `Iscriversi al canale`, done: true },
   { id: 1, text: `Scrivere un Reducer`, done: false },
   { id: 2, text: `Dispatchare la action`, done: false },
-  { id: 3, text: `Spostare la logica`, done: false },
 ]
 
 export const UserReducerInizio = () => <TaskApp />

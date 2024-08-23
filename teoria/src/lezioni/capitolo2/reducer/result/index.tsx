@@ -1,14 +1,9 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useReducer, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent } from "@/components/ui/card"
-
-type Task = {
-  id: number
-  text: string
-  done: boolean
-}
+import { reducer, Task } from "./reducer"
 
 const AddTask = ({ onAddTask }: { onAddTask: (text: string) => void }) => {
   const [text, setText] = useState(``)
@@ -38,7 +33,7 @@ const AddTask = ({ onAddTask }: { onAddTask: (text: string) => void }) => {
 }
 
 type TaskListProps = {
-  tasks: Pick<Task, "done" | "id" | "text">[]
+  tasks: Task[]
   onChangeTask: (task: Task) => void
   onDeleteTask: (taskId: number) => void
 }
@@ -118,53 +113,34 @@ const TaskList = ({ tasks, onChangeTask, onDeleteTask }: TaskListProps) => (
   </ul>
 )
 const TaskApp = () => {
-  const [tasks, setTasks] = useState(initialTasks)
-
-  function handleAddTask(text: string) {
-    setTasks([
-      ...tasks,
-      {
-        id: nextId++,
-        text,
-        done: false,
-      },
-    ])
+  const [state, dispatch] = useReducer(reducer, { tasks: initialTasks })
+  const { tasks: reducedTasks } = state
+  const reducedHandleAddTask = (text: string) => {
+    dispatch({ type: `ADD_TASK`, payload: text })
   }
-
-  function handleChangeTask(task: Task) {
-    setTasks(
-      tasks.map((t) => {
-        if (t.id === task.id) {
-          return task
-        }
-        return t
-      })
-    )
+  const reducedHandleChangeTask = (task: Task) => {
+    dispatch({ type: `CHANGE_TASK`, payload: task })
   }
-
-  function handleDeleteTask(taskId: Task["id"]) {
-    setTasks(tasks.filter((t) => t.id !== taskId))
+  const reducedHandleDeleteTask = (taskId: Task["id"]) => {
+    dispatch({ type: `DELETE_TASK`, payload: taskId })
   }
-
   return (
     <>
       <h2 className="mb-4">Step per implementare un Reducer in React</h2>
-      <AddTask onAddTask={handleAddTask} />
+      <AddTask onAddTask={reducedHandleAddTask} />
       <TaskList
-        tasks={tasks}
-        onChangeTask={handleChangeTask}
-        onDeleteTask={handleDeleteTask}
+        tasks={reducedTasks}
+        onChangeTask={reducedHandleChangeTask}
+        onDeleteTask={reducedHandleDeleteTask}
       />
     </>
   )
 }
 
-let nextId = 3
 const initialTasks = [
   { id: 0, text: `Iscriversi al canale`, done: true },
   { id: 1, text: `Scrivere un Reducer`, done: false },
   { id: 2, text: `Dispatchare la action`, done: false },
-  { id: 3, text: `Spostare la logica`, done: false },
 ]
 
 export const UserReducerRisultato = () => <TaskApp />
