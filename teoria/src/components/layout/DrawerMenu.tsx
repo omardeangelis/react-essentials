@@ -8,7 +8,6 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
-  SheetFooter,
 } from "@/components/ui/sheet"
 import { Button } from "../ui/button"
 
