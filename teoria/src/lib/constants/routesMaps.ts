@@ -51,6 +51,10 @@ export const routesMaps = {
       path: `/capitolo2/state-tips/`,
       label: `Gestione Avanzata`,
     },
+    {
+      path: `/capitolo2/reducer/`,
+      label: `useReducer`,
+    },
   ],
 }
 

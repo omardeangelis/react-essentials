@@ -23,10 +23,6 @@ function createInitialTodos() {
 }
 
 const StateInitiazializer = () => {
-  // Funzione viene eseguita ogni volta che il componente viene renderizzato
-  //   const [todos, setTodos] = useState(createInitialTodos())
-
-  // Funzione viene eseguita solo la prima volta che il componente viene renderizzato
   const [todos, setTodos] = useState([] as { id: number; text: string }[])
   const [text, setText] = useState(``)
   return (
