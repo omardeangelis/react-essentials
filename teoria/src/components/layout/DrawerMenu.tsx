@@ -8,6 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetClose,
+  SheetFooter,
 } from "@/components/ui/sheet"
 import { Button } from "../ui/button"
 
@@ -18,11 +19,25 @@ export const SheetMenu = () => (
         <Menu />
       </Button>
     </SheetTrigger>
-    <SheetContent side="right">
+    <SheetContent side="right" className="h-full">
       <SheetHeader>
         <SheetTitle>Azz, hai trovato l'indice</SheetTitle>
         <SheetDescription>Ora ti tocca imparare</SheetDescription>
       </SheetHeader>
+      <div className="mt-4">
+        <Button
+          asChild
+          variant="link"
+          className="cursor-pointer"
+          onClick={() =>
+            window.open(`https://donate.stripe.com/eVabLG42xh204iQbII`)
+          }
+        >
+          <div className="bg-card w-full bg-violet-900 rounded-lg border text-white">
+            Sostini il canale
+          </div>
+        </Button>
+      </div>
       <ul className="mt-8">
         <SheetClose asChild>
           <Link to="/capitolo1">
