@@ -1,22 +1,19 @@
-type ActionWithPayload<P> = {
-  type: "ADD_TASK" | "CHANGE_TASK" | "DELETE_TASK"
-  payload?: P
+type Action = {
+  type: "ADD_TASK" | "CHANGE_TASK" | "DELETE_TASK" | "RESET"
+  payload?: any
 }
 
-export type Task = {
+type Task = {
   id: number
   text: string
   done: boolean
 }
 
-export type AppStore = {
+type Store = {
   tasks: Task[]
 }
 
-export const reducer = (
-  state: AppStore,
-  action: ActionWithPayload<any>
-): AppStore => {
+export const reducer = (state: Store, action: Action): Store => {
   switch (action.type) {
     case `ADD_TASK`:
       return {
@@ -31,19 +28,26 @@ export const reducer = (
         ],
       }
     case `CHANGE_TASK`:
+      action.payload as Task
       return {
         ...state,
-        tasks: state.tasks.map((t) => {
-          if (t.id === action.payload.id) {
+        tasks: state.tasks.map((task) => {
+          if (task.id === action.payload.id) {
             return action.payload
           }
-          return t
+          return task
         }),
       }
     case `DELETE_TASK`:
+      action.payload as Task["id"]
       return {
         ...state,
-        tasks: state.tasks.filter((t) => t.id !== action.payload),
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
+      }
+    case `RESET`:
+      return {
+        ...state,
+        tasks: [],
       }
     default:
       return state
