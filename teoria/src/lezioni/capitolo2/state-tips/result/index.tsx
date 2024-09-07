@@ -92,7 +92,7 @@ const RandomColoredCard = () => {
   )
 }
 
-export const StateTipsInizio = () => (
+export const StateTipsRisultato = () => (
   <div className="space-y-4">
     <Accordion type="single" collapsible>
       <AccordionItem value="1">

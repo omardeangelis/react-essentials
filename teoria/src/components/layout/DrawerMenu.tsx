@@ -33,7 +33,7 @@ export const SheetMenu = () => (
           }
         >
           <div className="bg-card w-full bg-violet-900 rounded-lg border text-white">
-            Sostini il canale
+            Sostieni il canale
           </div>
         </Button>
       </div>

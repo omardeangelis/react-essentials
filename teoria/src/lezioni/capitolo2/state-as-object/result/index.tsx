@@ -165,7 +165,7 @@ export const StateAsObject = () => {
   )
 }
 
-export const StateAsObjectInizio = () => (
+export const StateAsObjectResult = () => (
   <div>
     <div>
       <h2 className="text-lg font-bold mb-2">Target our cursor</h2>

@@ -156,4 +156,4 @@ const initialTasks = [
   { id: 2, text: `Dispatchare la action`, done: false },
 ]
 
-export const UserReducerInizio = () => <TaskApp />
+export const UserReducerRisultato = () => <TaskApp />
