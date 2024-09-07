@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/accordion"
 import { ExampleCard } from "@/components/ui/card"
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
 function createInitialTodos() {
   console.log(`createInitialTodos`)
   const initialTodos = []
@@ -22,10 +23,6 @@ function createInitialTodos() {
 }
 
 const StateInitiazializer = () => {
-  // Funzione viene eseguita ogni volta che il componente viene renderizzato
-  //   const [todos, setTodos] = useState(createInitialTodos())
-
-  // Funzione viene eseguita solo la prima volta che il componente viene renderizzato
   const [todos, setTodos] = useState(createInitialTodos)
   const [text, setText] = useState(``)
   return (
@@ -73,6 +70,7 @@ const ResetStateWithKey = () => {
         Reset
       </Button>
       <RandomColoredCard key={version} />
+      {/* <RandomColoredCard key={version} /> */}
     </div>
   )
 }
@@ -82,7 +80,6 @@ const RandomColoredCard = () => {
   const handleColorChange = () => {
     setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`)
   }
-
   return (
     <ExampleCard>
       <div
@@ -95,7 +92,7 @@ const RandomColoredCard = () => {
   )
 }
 
-export const StateTipsRisultato = () => (
+export const StateTipsInizio = () => (
   <div className="space-y-4">
     <Accordion type="single" collapsible>
       <AccordionItem value="1">
