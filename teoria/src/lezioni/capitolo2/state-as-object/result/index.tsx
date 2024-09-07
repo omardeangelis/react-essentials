@@ -18,22 +18,14 @@ const CursorAsDot = () => {
     y: 0,
   })
 
-  // const handleWrongPointerMove = (e: React.PointerEvent) => {
-  //   const itemPosition = {
-  //     x: e.currentTarget.getBoundingClientRect().left,
-  //     y: e.currentTarget.getBoundingClientRect().top,
-  //   }
-  //   position.x = e.clientX - itemPosition.x
-  //   position.y = e.clientY - itemPosition.y
-  // }
-
-  const handlePointerMove = (e: React.PointerEvent) => {
-    // Puoi aggiornare un altro oggetto, solo lo state è immutabile
-    // Viene ricreato ogni volta
+  const handleWrongPointerMove = (e: React.PointerEvent) => {
     const itemPosition = {
       x: e.currentTarget.getBoundingClientRect().left,
       y: e.currentTarget.getBoundingClientRect().top,
     }
+    // position.x = e.clientX - itemPosition.x
+    // position.y = e.clientY - itemPosition.y
+
     setPosition({
       x: e.clientX - itemPosition.x,
       y: e.clientY - itemPosition.y,
@@ -42,7 +34,7 @@ const CursorAsDot = () => {
 
   return (
     <div
-      onPointerMove={handlePointerMove}
+      onPointerMove={handleWrongPointerMove}
       className="w-full h-[200px] bg-neutral-700 relative overflow-hidden cursor-none"
     >
       <div
@@ -58,16 +50,11 @@ const CursorAsDot = () => {
 const SpreadCopy = () => {
   const [form, setForm] = useState({
     name: ``,
-    surname: ``,
+    surname: `Ferrari`,
   })
 
   // const handleWrongChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   // Non verrà aggiornato lo stato
   //   form.name = e.target.value
-
-  //   setForm({
-  //     name: e.target.value,
-  //   })
   // }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,12 +91,10 @@ const Arrays = () => {
   const [list, setList] = useState<number[]>([])
 
   // const handleWrongAdd = () => {
-  //   // Non verrà aggiornato lo stato
   //   list.push(Math.random())
   // }
 
   // const handleWrongRemove = () => {
-  //   // Non verrà aggiornato lo stato
   //   list.pop()
   // }
 
@@ -180,7 +165,7 @@ export const StateAsObject = () => {
   )
 }
 
-export const StateAsObjectResult = () => (
+export const StateAsObjectInizio = () => (
   <div>
     <div>
       <h2 className="text-lg font-bold mb-2">Target our cursor</h2>
