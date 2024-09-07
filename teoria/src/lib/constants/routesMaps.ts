@@ -55,6 +55,10 @@ export const routesMaps = {
       path: `/capitolo2/reducer/`,
       label: `useReducer`,
     },
+    {
+      path: `/capitolo2/useRef/`,
+      label: `useRef`,
+    },
   ],
 }
 
