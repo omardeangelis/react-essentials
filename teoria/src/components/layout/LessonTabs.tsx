@@ -42,7 +42,7 @@ export const LessonTabIntro = ({ children }: { children: React.ReactNode }) => (
   <Accordion
     type="single"
     collapsible
-    className="max-w-2xl w-full bg-[#011e24] px-4 py-4 rounded-lg shadow-lg mt-4"
+    className="max-w-2xl w-full bg-violet-700/30 px-4 py-4 rounded-lg shadow-lg mt-4"
   >
     {children}
   </Accordion>

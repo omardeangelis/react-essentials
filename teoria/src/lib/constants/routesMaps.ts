@@ -55,6 +55,18 @@ export const routesMaps = {
       path: `/capitolo2/reducer/`,
       label: `useReducer`,
     },
+    {
+      path: `/capitolo2/useRef/`,
+      label: `useRef`,
+    },
+    {
+      path: `/capitolo2/useEffect/`,
+      label: `useEffect`,
+    },
+    {
+      path: `/capitolo2/useEffect-for-fetch/`,
+      label: `Data Fetching con useEffect`,
+    },
   ],
 }
 
