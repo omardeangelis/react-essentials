@@ -63,6 +63,10 @@ export const routesMaps = {
       path: `/capitolo2/useEffect/`,
       label: `useEffect`,
     },
+    {
+      path: `/capitolo2/useEffect-for-fetch/`,
+      label: `Data Fetching con useEffect`,
+    },
   ],
 }
 
