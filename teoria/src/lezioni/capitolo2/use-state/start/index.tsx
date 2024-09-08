@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Code } from "@/components/ui/code"
 
 const state = {
   count: 0,
@@ -19,7 +20,7 @@ const StartinWrongIsAlwaysAGoodIdea = () => {
       <div>
         <h2 className="text-xl font-bold">Come non farlo funzionare</h2>
         <p className="mt-2">
-          Il valore di <code>count</code> è <code>{state.count}</code>
+          Il valore di <Code>count</Code> è <Code>{state.count}</Code>
         </p>
       </div>
       <Button

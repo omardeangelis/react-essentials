@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-
+import { Code } from "@/components/ui/code"
 // class Example extends React.Component {
 //   render(): React.ReactNode {
 //     return (
@@ -38,7 +38,7 @@ const StartinWrongIsAlwaysAGoodIdea = () => {
       <div>
         <h2 className="text-xl font-bold">Come non farlo funzionare</h2>
         <p className="mt-2">
-          Il valore di <code>count</code> è <code>{state.count}</code>
+          Il valore di <Code>count</Code> è <Code>{state.count}</Code>
         </p>
       </div>
       <Button type="button" variant="success" onClick={increment}>
@@ -56,7 +56,7 @@ const Couneter = () => {
       <div>
         <h2 className="text-xl font-bold">Come farlo funzionare</h2>
         <p className="mt-2">
-          Il valore di <code>count</code> è <code>{count}</code>
+          Il valore di <Code>count</Code> è <Code>{count}</Code>
         </p>
       </div>
       <Button type="button" onClick={() => setCount(count + 1)}>
@@ -76,7 +76,7 @@ const CounterWithProps = (props: CounterProps) => (
     <div>
       <h2 className="text-xl font-bold">Contatori Gemellini</h2>
       <p className="mt-2">
-        Il valore di <code>count</code> è <code>{props.count}</code>
+        Il valore di <Code>count</Code> è <Code>{props.count}</Code>
       </p>
     </div>
     <Button type="button" onClick={props.increment}>

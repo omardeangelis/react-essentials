@@ -59,6 +59,10 @@ export const routesMaps = {
       path: `/capitolo2/useRef/`,
       label: `useRef`,
     },
+    {
+      path: `/capitolo2/useEffect/`,
+      label: `useEffect`,
+    },
   ],
 }
 
