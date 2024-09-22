@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { forwardRef, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ExampleCard } from "@/components/ui/card"
@@ -7,10 +9,12 @@ const UseRefBasic = () => {
   const [value, setValue] = useState(0)
   const increment = useRef(0)
 
+  console.log(increment)
+
   // useRef ritorna un oggetto che ha una proprietà current
   const handleClick = () => {
-    setValue((old) => {
-      const nextValue = old + 1
+    setValue((prev) => {
+      const nextValue = prev + 1
       increment.current += nextValue * 2
       return nextValue
     })
@@ -44,15 +48,15 @@ const UseRefDom = () => {
   // useRef può essere usato per accedere a un elemento del DOM
   const inputRef = useRef<HTMLInputElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
-
   const handleClick = () => {
-    console.log(inputRef.current)
+    console.log(inputRef.current?.value)
     inputRef.current?.focus()
+    // inputRef.current?.value
   }
 
   const handlePrint = () => {
     console.log(formRef.current)
-    const formData = new FormData(formRef.current as HTMLFormElement)
+    const formData = new FormData(formRef.current!)
     console.log(formData.get(`name`))
     formRef.current?.reset()
   }
@@ -97,10 +101,10 @@ const RefForTimout = () => {
   }
 
   const handleStop = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current)
+    if (isRunning) {
+      clearInterval(intervalRef.current!)
+      setIsRunning(false)
     }
-    setIsRunning(false)
   }
 
   const handleReset = () => {
@@ -110,8 +114,10 @@ const RefForTimout = () => {
 
   return (
     <ExampleCard>
-      <p>Countdown: {timer} seconds</p>
-      <p>Is running: {isRunning ? `Yes` : `No`}</p>
+      <div className="flex flex-col gap-2">
+        <p>Hai {timer} secondi per iscriverti al canale</p>
+        <p>Is running: {isRunning ? `Yes` : `No`}</p>
+      </div>
       <div className="flex gap-2">
         <Button type="button" onClick={handleStart} disabled={isRunning}>
           Start
@@ -128,21 +134,18 @@ const RefForTimout = () => {
 }
 
 const CustomComponent = forwardRef<HTMLInputElement, { name: string }>(
-  ({ name }, ref) => <Input ref={ref} name={name} />
+  (props, ref) => <Input name={props.name} ref={ref} />
 )
-
-CustomComponent.displayName = `CustomComponent`
 
 const UseRefForwardRef = () => {
   const inputRef = useRef<HTMLInputElement>(null)
-
   const handleClick = () => {
     inputRef.current?.focus()
   }
 
   return (
     <ExampleCard>
-      <CustomComponent ref={inputRef} name="name" />
+      <CustomComponent name="name" ref={inputRef} />
       <Button type="button" onClick={handleClick}>
         Focus
       </Button>
@@ -154,7 +157,7 @@ export const UseRefResult = () => (
   <div className="flex flex-col gap-4">
     <UseRefBasic />
     <UseRefDom />
-    <UseRefForwardRef />
     <RefForTimout />
+    <UseRefForwardRef />
   </div>
 )

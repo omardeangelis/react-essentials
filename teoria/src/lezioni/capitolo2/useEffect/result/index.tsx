@@ -1,24 +1,28 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FormEvent, useEffect, useRef, useState } from "react"
-import { createFakeChat, FakeChat } from "../constant/fakeChat"
+import { Message, createFakeChat, FakeChat } from "../constant/fakeChat"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 const ChatRoom = ({ serverUrl }: { serverUrl: string }) => {
   const [roomId, setRoomId] = useState(`1`)
-
+  const [messages, setMessages] = useState<Message[]>([])
   const chat = useRef<FakeChat | null>(null)
 
-  const [messages, setMessages] = useState(
-    chat.current?.getMessages(roomId) ?? []
-  )
-
   const formRef = useRef<HTMLFormElement>(null)
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.target as HTMLFormElement)
-    const message = formData.get(`message`) as string
-    setMessages([...messages, { id: messages.length, text: message, roomId }])
-    chat.current?.addMessage(message)
+    const formData = new FormData(formRef.current!)
+    const message = formData.get(`message`)
+    if (message) {
+      setMessages((prev) => [
+        ...prev,
+        { id: prev.length, text: message as string, roomId },
+      ])
+      chat.current?.addMessage(message as string)
+    }
     formRef.current?.reset()
   }
 
@@ -26,7 +30,7 @@ const ChatRoom = ({ serverUrl }: { serverUrl: string }) => {
     if (!chat.current) {
       chat.current = createFakeChat()
     } else {
-      chat.current?.connection({ serverUrl, roomId })
+      chat.current.connection({ serverUrl, roomId })
       return () => {
         chat.current?.disconnect()
       }
@@ -34,8 +38,11 @@ const ChatRoom = ({ serverUrl }: { serverUrl: string }) => {
   }, [serverUrl, roomId])
 
   useEffect(() => {
-    console.log(`roomId: ${roomId}`)
-    setMessages(chat.current?.getMessages(roomId) ?? [])
+    // setRoomId() // CATTIVO
+    if (chat.current) {
+      console.log(`syncing messages`)
+      setMessages(chat.current.getMessages(roomId))
+    }
   }, [roomId])
 
   return (
@@ -45,7 +52,7 @@ const ChatRoom = ({ serverUrl }: { serverUrl: string }) => {
           <select
             onChange={(e) => setRoomId(e.target.value)}
             value={roomId}
-            className="select "
+            className="select"
           >
             <option value="1">Room 1</option>
             <option value="2">Room 2</option>
@@ -63,7 +70,7 @@ const ChatRoom = ({ serverUrl }: { serverUrl: string }) => {
             ))}
           </ul>
         ) : (
-          <p>No messages yet for this room</p>
+          <p>No message per chi non è iscritto al canale</p>
         )}
       </div>
     </div>
