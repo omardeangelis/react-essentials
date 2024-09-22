@@ -145,7 +145,7 @@ export const FetchPeople = ({ id }: Props) => {
   )
 }
 
-export const UseEffectForFetchStart = () => {
+export const UseEffectForFetchResult = () => {
   const [id, setId] = useState(`1`)
   return (
     <div className="flex flex-col gap-4">
