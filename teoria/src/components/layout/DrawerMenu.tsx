@@ -37,6 +37,20 @@ export const SheetMenu = () => (
           </div>
         </Button>
       </div>
+      <div className="mt-4">
+        <Button
+          asChild
+          variant="link"
+          className="cursor-pointer"
+          onClick={() =>
+            window.open(`https://donate.stripe.com/eVabLG42xh204iQbII`)
+          }
+        >
+          <div className="bg-card w-full bg-red-800 text-white rounded-lg border">
+            Iscriviti al canale
+          </div>
+        </Button>
+      </div>
       <ul className="mt-8">
         <SheetClose asChild>
           <Link to="/capitolo1">
@@ -56,6 +70,18 @@ export const SheetMenu = () => (
               <p className="text-sm text-neutral-400 mt-2">
                 Impara a usare gli hooks, effects e references e crea
                 un'applicazione
+              </p>
+            </li>
+          </Link>
+        </SheetClose>
+        <div className="mt-4" />
+        <SheetClose asChild>
+          <Link to="/capitolo3">
+            <li className="bg-card p-4 rounded-lg border hover:bg-blue-950">
+              <p>Improve your app</p>
+              <p className="text-sm text-neutral-400 mt-2">
+                Hook & API, lifecycle & context per sviluppare app più
+                efficienti
               </p>
             </li>
           </Link>

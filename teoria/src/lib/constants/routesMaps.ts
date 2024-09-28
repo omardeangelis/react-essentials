@@ -68,6 +68,16 @@ export const routesMaps = {
       label: `Data Fetching con useEffect`,
     },
   ],
+  capitolo3: [
+    {
+      path: `/capitolo3`,
+      label: `Introduzione`,
+    },
+    {
+      path: `/capitolo3/custom-hooks`,
+      label: `Custom Hooks`,
+    },
+  ],
 }
 
 export const routesMapKeys = Object.keys(routesMaps) as Array<
