@@ -42,9 +42,7 @@ export const SheetMenu = () => (
           asChild
           variant="link"
           className="cursor-pointer"
-          onClick={() =>
-            window.open(`https://donate.stripe.com/eVabLG42xh204iQbII`)
-          }
+          onClick={() => window.open(`https://www.youtube.com/@Out-of-Class`)}
         >
           <div className="bg-card w-full bg-red-800 text-white rounded-lg border">
             Iscriviti al canale
