@@ -17,6 +17,7 @@ import { Route as CapitoliImport } from './routes/_capitoli'
 import { Route as CapitoliCapitolo3IndexImport } from './routes/_capitoli/capitolo3/index'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
+import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3CustomHooksIndexImport } from './routes/_capitoli/capitolo3/custom-hooks/index'
 import { Route as CapitoliCapitolo2UseEffectIndexImport } from './routes/_capitoli/capitolo2/useEffect/index'
 import { Route as CapitoliCapitolo2UseEffectForFetchIndexImport } from './routes/_capitoli/capitolo2/useEffect-for-fetch/index'
@@ -82,6 +83,12 @@ const CapitoliCapitolo1NextLazyRoute = CapitoliCapitolo1NextLazyImport.update({
 const CapitoliCapitolo2UseRefRouteRoute =
   CapitoliCapitolo2UseRefRouteImport.update({
     path: '/capitolo2/useRef',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3UseContextIndexRoute =
+  CapitoliCapitolo3UseContextIndexImport.update({
+    path: '/capitolo3/useContext/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -247,6 +254,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3CustomHooksIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/useContext/': {
+      preLoaderRoute: typeof CapitoliCapitolo3UseContextIndexImport
+      parentRoute: typeof CapitoliImport
+    }
   }
 }
 
@@ -273,6 +284,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo2UseEffectForFetchIndexRoute,
     CapitoliCapitolo2UseEffectIndexRoute,
     CapitoliCapitolo3CustomHooksIndexRoute,
+    CapitoliCapitolo3UseContextIndexRoute,
   ]),
 ])
 

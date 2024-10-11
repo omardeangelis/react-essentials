@@ -77,6 +77,10 @@ export const routesMaps = {
       path: `/capitolo3/custom-hooks`,
       label: `Custom Hooks`,
     },
+    {
+      path: `/capitolo3/useContext`,
+      label: `useContext`,
+    },
   ],
 }
 
