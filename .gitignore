@@ -35,3 +35,6 @@ yarn.lock
 
 # pnpm-workspace.yaml
 pnpm-workspace.yaml
+
+# npm
+package-lock.json
