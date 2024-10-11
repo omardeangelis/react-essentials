@@ -26,3 +26,12 @@ dist-ssr
 #bun
 .bun-cache
 bun.lockb
+
+# pnpm
+pnpm-lock.yaml
+
+# yarn
+yarn.lock
+
+# pnpm-workspace.yaml
+pnpm-workspace.yaml
