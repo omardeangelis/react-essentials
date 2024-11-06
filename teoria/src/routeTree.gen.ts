@@ -17,6 +17,7 @@ import { Route as CapitoliImport } from './routes/_capitoli'
 import { Route as CapitoliCapitolo3IndexImport } from './routes/_capitoli/capitolo3/index'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
+import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli/capitolo3/useMemo/index'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
 import { Route as CapitoliCapitolo3ReactMemoIndexImport } from './routes/_capitoli/capitolo3/react-memo/index'
@@ -85,6 +86,12 @@ const CapitoliCapitolo1NextLazyRoute = CapitoliCapitolo1NextLazyImport.update({
 const CapitoliCapitolo2UseRefRouteRoute =
   CapitoliCapitolo2UseRefRouteImport.update({
     path: '/capitolo2/useRef',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3UseMemoIndexRoute =
+  CapitoliCapitolo3UseMemoIndexImport.update({
+    path: '/capitolo3/useMemo/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -280,6 +287,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3UseContextIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/useMemo/': {
+      preLoaderRoute: typeof CapitoliCapitolo3UseMemoIndexImport
+      parentRoute: typeof CapitoliImport
+    }
   }
 }
 
@@ -309,6 +320,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo3ReactMemoIndexRoute,
     CapitoliCapitolo3UseCallbackIndexRoute,
     CapitoliCapitolo3UseContextIndexRoute,
+    CapitoliCapitolo3UseMemoIndexRoute,
   ]),
 ])
 

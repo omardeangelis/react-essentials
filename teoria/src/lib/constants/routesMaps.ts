@@ -89,6 +89,10 @@ export const routesMaps = {
       path: `/capitolo3/useCallback`,
       label: `useCallback`,
     },
+    {
+      path: `/capitolo3/useMemo`,
+      label: `useMemo`,
+    },
   ],
 }
 
