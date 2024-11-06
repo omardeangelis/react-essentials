@@ -122,11 +122,11 @@ export const UseCallbackStart = () => {
       </div>
       <hr className="my-4" />
       <StandardComponent theme={theme} productId={productId} />
-      <hr className="my-4" />
+      {/* <hr className="my-4" /> */}
       {/* <OptimizedComponent theme={theme} productId={productId} /> */}
-      <hr className="my-4" />
+      {/* <hr className="my-4" /> */}
       {/* <TodoList /> */}
-      <hr className="my-4" />
+      {/* <hr className="my-4" /> */}
       {/* <UseCreateConfigComponent /> */}
     </div>
   )

@@ -51,6 +51,7 @@ const OptimizedComponent = ({
   //   const handleSubmit = useCallback((value: string) => {
   //     console.log(`submit ${value} ${productId}`)
   //   }, [])
+  // RICORDA: useCallback ricrea sempre la funzione, ma ti ritorna la stessa funzione se le dipendenze non sono cambiate
   const handleSubmit = useCallback(
     (value: string) => {
       console.log(`submit ${value} ${productId}`)

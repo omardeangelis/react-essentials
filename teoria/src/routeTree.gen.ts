@@ -19,6 +19,7 @@ import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capito
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
+import { Route as CapitoliCapitolo3ReactMemoIndexImport } from './routes/_capitoli/capitolo3/react-memo/index'
 import { Route as CapitoliCapitolo3CustomHooksIndexImport } from './routes/_capitoli/capitolo3/custom-hooks/index'
 import { Route as CapitoliCapitolo2UseEffectIndexImport } from './routes/_capitoli/capitolo2/useEffect/index'
 import { Route as CapitoliCapitolo2UseEffectForFetchIndexImport } from './routes/_capitoli/capitolo2/useEffect-for-fetch/index'
@@ -96,6 +97,12 @@ const CapitoliCapitolo3UseContextIndexRoute =
 const CapitoliCapitolo3UseCallbackIndexRoute =
   CapitoliCapitolo3UseCallbackIndexImport.update({
     path: '/capitolo3/useCallback/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3ReactMemoIndexRoute =
+  CapitoliCapitolo3ReactMemoIndexImport.update({
+    path: '/capitolo3/react-memo/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -261,6 +268,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3CustomHooksIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/react-memo/': {
+      preLoaderRoute: typeof CapitoliCapitolo3ReactMemoIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo3/useCallback/': {
       preLoaderRoute: typeof CapitoliCapitolo3UseCallbackIndexImport
       parentRoute: typeof CapitoliImport
@@ -295,6 +306,7 @@ export const routeTree = rootRoute.addChildren([
     CapitoliCapitolo2UseEffectForFetchIndexRoute,
     CapitoliCapitolo2UseEffectIndexRoute,
     CapitoliCapitolo3CustomHooksIndexRoute,
+    CapitoliCapitolo3ReactMemoIndexRoute,
     CapitoliCapitolo3UseCallbackIndexRoute,
     CapitoliCapitolo3UseContextIndexRoute,
   ]),

@@ -82,6 +82,10 @@ export const routesMaps = {
       label: `useContext`,
     },
     {
+      path: `/capitolo3/react-memo`,
+      label: `React.memo`,
+    },
+    {
       path: `/capitolo3/useCallback`,
       label: `useCallback`,
     },
