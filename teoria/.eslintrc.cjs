@@ -123,6 +123,13 @@ module.exports = {
       },
     ],
     "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "controlComponents": ["Input"],
+        "depth": 3,
+      },
+    ],
     "jsx-a11y/anchor-is-valid": [
       "warn",
       {
