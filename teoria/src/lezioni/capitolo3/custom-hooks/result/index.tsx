@@ -1,7 +1,7 @@
-import { useIsOnline } from "./hooks/useIsOnline"
 import { Input } from "@/components/ui/input"
-import { useInputForm } from "./hooks/useInputForm"
 import { ChatRoomV2 } from "./components/ChatRoomV2"
+import { useIsOnline } from "./hooks/useIsOnline"
+import { useInputForm } from "./hooks/useInputForm"
 
 const StatusBar = () => {
   const isOnline = useIsOnline()
@@ -11,34 +11,38 @@ const StatusBar = () => {
 
 const StatusUser = () => {
   const isOnline = useIsOnline()
-
   if (isOnline) {
     return <h2>User component</h2>
   }
-  return <h2>User is riconnecting</h2>
+  return <h2>User se sta connettenno ao</h2>
 }
 
-// Sono singoli stati non uno condiviso
-
 const FormInput = () => {
-  const nameInput = useInputForm(`Enzo`)
-  const surnameInput = useInputForm(`Spatalino`)
+  const { value: name, handleChange: handleNameChange } =
+    useInputForm(`Iscriviti`)
+  const { value: surname, handleChange: handleSurnameChange } =
+    useInputForm(`Al Canale`)
+
   return (
     <div className="flex flex-col gap-2 ">
       <p>Name</p>
       <Input
+        id="name"
+        name="name"
         type="text"
-        value={nameInput.value}
-        onChange={nameInput.handleChange}
+        value={name}
+        onChange={handleNameChange}
       />
       <p>Surname</p>
       <Input
+        id="surname"
+        name="surname"
         type="text"
-        value={surnameInput.value}
-        onChange={surnameInput.handleChange}
+        value={surname}
+        onChange={handleSurnameChange}
       />
       <p className="mt-4 font-bold text-xl text-violet-500">
-        {nameInput.value} {surnameInput.value}
+        {name} {surname}
       </p>
     </div>
   )

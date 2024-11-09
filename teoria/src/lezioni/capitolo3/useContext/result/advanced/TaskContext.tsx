@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, Dispatch, useContext, useMemo, useReducer } from "react"
 
 type Action = {
@@ -15,7 +16,7 @@ type Store = {
   tasks: Task[]
 }
 
-const reducer = (state: Store, action: Action): Store => {
+export const reducer = (state: Store, action: Action): Store => {
   switch (action.type) {
     case `ADD_TASK`:
       return {
@@ -62,10 +63,10 @@ const initialTasks = [
   { id: 2, text: `Dispatchare la action`, done: false },
 ]
 
-const TaskContext = createContext<{
+export const TaskContext = createContext<{
   tasks: Task[]
   dispatch: Dispatch<Action>
-}>({ tasks: [], dispatch: () => {} })
+}>({ tasks: initialTasks, dispatch: () => {} })
 
 export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, { tasks: initialTasks })
@@ -78,5 +79,4 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useTasks = () => useContext(TaskContext)

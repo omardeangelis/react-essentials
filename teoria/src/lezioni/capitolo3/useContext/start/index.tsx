@@ -56,17 +56,17 @@ const DynamicItem = ({ theme }: { theme: `light` | `dark` }) => {
     <Card
       className={cn(
         `mt-4`,
-        theme === `light` ? `bg-blue-50` : `bg-blue-700/30`
+        themeState === `light` ? `bg-blue-50` : `bg-blue-700/30`
       )}
     >
       <CardContent className="p-4 flex flex-row justify-between items-center gap-2">
         <p
           className={cn(
             `text-sm`,
-            theme === `light` ? `text-black` : `text-white`
+            themeState === `light` ? `text-black` : `text-white`
           )}
         >
-          Il tema della card è: {theme}
+          Il tema della card è: {themeState}
         </p>
         <ThemeToggler theme={themeState} setTheme={setThemeState} />
       </CardContent>

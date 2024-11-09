@@ -1,14 +1,14 @@
 import { createContext, useContext, useMemo, useState } from "react"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import { TaskApp } from "./advanced"
+import { TaskProvider } from "./advanced/TaskContext"
 
-const ThemeContext = createContext<"light" | "dark">(`light`)
+const ThemeContext = createContext<`light` | `dark`>(`light`)
 
 const Item = () => {
   const theme = useContext(ThemeContext)
-
   return (
     <Card
       className={cn(
@@ -31,31 +31,33 @@ const Item = () => {
 }
 
 const BasicContext = () => (
-  <ThemeContext.Provider value="dark">
+  <ThemeContext.Provider value="light">
     <Item />
-    <ThemeContext.Provider value="light">
+    <ThemeContext.Provider value="dark">
       <Item />
     </ThemeContext.Provider>
   </ThemeContext.Provider>
 )
 
 const ThemeDynamicContext = createContext<{
-  theme: "light" | "dark"
-  setTheme: (theme: "light" | "dark") => void
-}>({ theme: `light`, setTheme: () => {} })
+  theme: `light` | `dark`
+  setTheme: (themeValue: `light` | `dark`) => void
+}>({
+  theme: `light`,
+  setTheme: () => {},
+})
 
-const ThemeDynamicProvider = ({
+const DynamicProvider = ({
   children,
   initialTheme = `light`,
 }: {
   children: React.ReactNode
-  initialTheme?: "light" | "dark"
+  initialTheme?: `light` | `dark`
 }) => {
-  const [theme, setTheme] = useState<"light" | "dark">(initialTheme)
-  const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme])
-
+  const [theme, setTheme] = useState<`light` | `dark`>(initialTheme)
+  const ctx = useMemo(() => ({ theme, setTheme }), [theme])
   return (
-    <ThemeDynamicContext.Provider value={value}>
+    <ThemeDynamicContext.Provider value={ctx}>
       {children}
     </ThemeDynamicContext.Provider>
   )
@@ -63,7 +65,6 @@ const ThemeDynamicProvider = ({
 
 const ThemeToggler = () => {
   const { theme, setTheme } = useContext(ThemeDynamicContext)
-
   return (
     <Button
       className={cn(
@@ -104,67 +105,21 @@ const DynamicItem = () => {
 }
 
 const DynamicContext = () => (
-  <ThemeDynamicProvider initialTheme="dark">
+  <DynamicProvider initialTheme="light">
     <DynamicItem />
-    <ThemeDynamicProvider initialTheme="light">
+    <DynamicProvider initialTheme="dark">
       <DynamicItem />
-    </ThemeDynamicProvider>
-  </ThemeDynamicProvider>
+    </DynamicProvider>
+  </DynamicProvider>
 )
 
-const UserContext = createContext<{
-  name: string
-  surname: string
-}>({ name: `John`, surname: `Doe` })
-
-const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
-  const [name, setName] = useState(`John`)
-  const [surname, setSurname] = useState(`Doe`)
-  const value = useMemo(
-    () => ({ name, setName, surname, setSurname }),
-    [name, setName, surname, setSurname]
-  )
-  return (
-    <ThemeDynamicProvider initialTheme="dark">
-      <UserContext.Provider value={value}>{children}</UserContext.Provider>
-    </ThemeDynamicProvider>
-  )
-}
-
-const GlobalItem = () => {
-  const { name } = useContext(UserContext)
-  const { theme } = useContext(ThemeDynamicContext)
-  return (
-    <Card
-      className={cn(
-        `mt-4`,
-        theme === `light` ? `bg-violet-50` : `bg-violet-700/30`
-      )}
-    >
-      <CardContent className="p-4 flex flex-row justify-between items-center gap-2">
-        <p
-          className={cn(
-            `text-sm`,
-            theme === `light` ? `text-black` : `text-white`
-          )}
-        >
-          Il nome dell'utente è: {name}
-        </p>
-        <ThemeToggler />
-      </CardContent>
-    </Card>
-  )
-}
-
 export const ContextResult = () => (
-  <div className="[&>*]:mt-4">
+  <>
     <BasicContext />
     <DynamicContext />
-    <GlobalProvider>
-      <GlobalItem />
-    </GlobalProvider>
     <hr className="my-4" />
-    <h2 className="mb-4">Advanced Example</h2>
-    <TaskApp />
-  </div>
+    <TaskProvider>
+      <TaskApp />
+    </TaskProvider>
+  </>
 )
