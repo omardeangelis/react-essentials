@@ -118,7 +118,7 @@ const TaskList = ({ tasks, onChangeTask, onDeleteTask }: TaskListProps) => (
     ))}
   </ul>
 )
-const TaskApp = () => {
+export const TaskApp = () => {
   const [state, disptach] = useReducer(reducer, { tasks: initialTasks })
   const { tasks: reducedTasks } = state
   function handleAddTask(text: string) {
@@ -155,5 +155,3 @@ const initialTasks = [
   { id: 1, text: `Scrivere un Reducer`, done: false },
   { id: 2, text: `Dispatchare la action`, done: false },
 ]
-
-export const UserReducerRisultato = () => <TaskApp />

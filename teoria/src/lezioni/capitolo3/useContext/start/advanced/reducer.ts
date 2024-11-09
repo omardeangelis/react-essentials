@@ -1,3 +1,4 @@
+// eslint-disable-next-line react-refresh/only-export-components
 type Action = {
   type: "ADD_TASK" | "CHANGE_TASK" | "DELETE_TASK" | "RESET"
   payload?: any

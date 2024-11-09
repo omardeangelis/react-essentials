@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent } from "@/components/ui/card"
-import { TaskProvider, useTasks } from "./TaskContext"
+import { useTasks } from "./TaskContext"
 
 type Task = {
   id: number
@@ -12,8 +12,8 @@ type Task = {
 }
 
 const AddTask = () => {
-  const [text, setText] = useState(``)
   const { dispatch } = useTasks()
+  const [text, setText] = useState(``)
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault()
@@ -44,8 +44,8 @@ type TaskCardProps = {
 }
 
 const TaskCard = ({ task }: TaskCardProps) => {
-  const [isEditing, setIsEditing] = useState(false)
   const { dispatch } = useTasks()
+  const [isEditing, setIsEditing] = useState(false)
   let taskContent: JSX.Element
   if (isEditing) {
     taskContent = (
@@ -122,18 +122,18 @@ const TaskList = () => {
 export const TaskApp = () => {
   const { dispatch } = useTasks()
 
-  function handleReset() {
+  const handleReset = () => {
     dispatch({ type: `RESET` })
   }
 
   return (
-    <TaskProvider>
+    <>
       <h2 className="mb-4">Step per implementare un Reducer in React</h2>
       <AddTask />
       <button type="button" onClick={handleReset}>
         Reset
       </button>
       <TaskList />
-    </TaskProvider>
+    </>
   )
 }
