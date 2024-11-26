@@ -10,7 +10,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { useSuspenseQuery } from "@tanstack/react-query"
 import { Suspense, useDeferredValue, useState } from "react"
-import { axiosInstance } from "@/client"
 
 type Post = {
   id: number
@@ -25,10 +24,8 @@ const getRole = (index: number) => roles[index % roles.length]
 function App() {
   const [search, setSearch] = useState("")
   const searchDeferred = useDeferredValue(search)
-  const { data } = useSuspenseQuery({
-    queryKey: ["people", searchDeferred],
-    queryFn: async () =>
-      await axiosInstance.get<Post[]>(`/posts/?title_like=${searchDeferred}`),
+  const { data } = useSuspenseQuery<Post[]>({
+    queryKey: [`/posts/?title_like=${searchDeferred}`],
   })
   return (
     <div className="max-w-3xl mx-auto">
@@ -49,7 +46,7 @@ function App() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.data.map((person, index) => (
+            {data.map((person, index) => (
               <TableRow key={person.id}>
                 <TableCell className="font-medium text-left">
                   {person.id}

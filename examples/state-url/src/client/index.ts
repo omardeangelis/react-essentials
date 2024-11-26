@@ -16,7 +16,10 @@ export const axiosInstance = axios.create(baseConfig)
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      queryFn: ({ queryKey }) => axiosInstance.get(queryKey[0] as string),
+      queryFn: async ({ queryKey }) => {
+        const { data } = await axiosInstance.get(queryKey[0] as string)
+        return data
+      },
     },
   },
 })
