@@ -116,21 +116,6 @@ export const ReactMemoResult = () => {
   const [name, setName] = useState(`John`)
   const [address, setAddress] = useState(`Via Roma 1`)
   const [theme, setTheme] = useState<`light` | `dark`>(`dark`)
-  const [count, setCount] = useState(0)
-
-  const updateCount = useCallback(
-    () =>
-      setCount((prev) => {
-        if (prev < 5) {
-          return prev + 2
-        }
-        if (prev > 100) {
-          return prev + 1
-        }
-        return prev * 2 + 1
-      }),
-    []
-  )
   /* Se non memoizzato causerà un re-render ogni volta che cambia un qualsiasi stato perché memo
   compara le props usando Object.is:
   -  Object.is("John", "John") è true
@@ -149,6 +134,23 @@ export const ReactMemoResult = () => {
   const fn = useCallback(() => {
     console.log(`Sono la funzione`)
   }, [])
+
+  // Componente memorizzato manualmente
+  const [count, setCount] = useState(0)
+
+  const updateCount = useCallback(
+    () =>
+      setCount((prev) => {
+        if (prev < 5) {
+          return prev + 2
+        }
+        if (prev > 100) {
+          return prev + 1
+        }
+        return prev * 2 + 1
+      }),
+    []
+  )
 
   return (
     <div className="flex flex-col gap-4">

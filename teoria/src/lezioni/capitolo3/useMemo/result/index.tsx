@@ -101,17 +101,18 @@ const List = memo(
         <Button type="button" onClick={() => setCount((prev) => prev + 1)}>
           {count}
         </Button>
-        <ul>
-          {todos.map((todo) => (
-            <li key={todo.id}>{todo.title}</li>
-          ))}
-        </ul>
         <Button
           type="button"
+          className="ml-4"
           onClick={() => printFilteredTodos(filteredMemoized)}
         >
           Print filtered todos
         </Button>
+        <ul className="mt-4">
+          {todos.map((todo) => (
+            <li key={todo.id}>{todo.title}</li>
+          ))}
+        </ul>
       </div>
     )
   }
