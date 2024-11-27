@@ -11,6 +11,7 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 import { Suspense, useDeferredValue, useState } from "react"
 import { getRole, Post } from "./lib/utils"
 import { Link } from "react-router"
+import { Badge } from "./components/ui/badge"
 
 function Result() {
   const [search, setSearch] = useState("")
@@ -20,7 +21,7 @@ function Result() {
   })
   return (
     <div className="max-w-3xl mx-auto pt-10">
-      <h1>State URL</h1>
+      <h1>State URL Result</h1>
       <div className="flex justify-between items-end gap-2">
         <Input
           value={search}
@@ -28,7 +29,7 @@ function Result() {
           placeholder="Search"
           className="mt-10 max-w-xs"
         />
-        <Link to="/">Starting page &larr;</Link>
+        <Link to="/">Starting page &rarr;</Link>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
         <Table className="border mt-10">
@@ -40,13 +41,17 @@ function Result() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((person, index) => (
-              <TableRow key={person.id}>
+            {data.map((post, index) => (
+              <TableRow key={post.id}>
                 <TableCell className="font-medium text-left">
-                  {person.id}
+                  {post.id}
                 </TableCell>
-                <TableCell className="text-left">{person.title}</TableCell>
-                <TableCell className="text-left">{getRole(index)}</TableCell>
+                <TableCell className="text-left font-medium">
+                  {post.title}
+                </TableCell>
+                <TableCell className="text-left">
+                  <Badge variant={getRole(index)}>{getRole(index)}</Badge>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

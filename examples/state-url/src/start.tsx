@@ -11,6 +11,7 @@ import { useSuspenseQuery } from "@tanstack/react-query"
 import { Suspense, useDeferredValue, useState } from "react"
 import { getRole, Post } from "./lib/utils"
 import { Link } from "react-router"
+import { Badge } from "./components/ui/badge"
 
 function Start() {
   const [search, setSearch] = useState("")
@@ -40,13 +41,17 @@ function Start() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.map((person, index) => (
-              <TableRow key={person.id}>
+            {data.map((post, index) => (
+              <TableRow key={post.id}>
                 <TableCell className="font-medium text-left">
-                  {person.id}
+                  {post.id}
                 </TableCell>
-                <TableCell className="text-left">{person.title}</TableCell>
-                <TableCell className="text-left">{getRole(index)}</TableCell>
+                <TableCell className="text-left font-medium">
+                  {post.title}
+                </TableCell>
+                <TableCell className="text-left">
+                  <Badge variant={getRole(index)}>{getRole(index)}</Badge>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
