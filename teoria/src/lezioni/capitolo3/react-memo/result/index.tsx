@@ -181,10 +181,10 @@ export const ReactMemoResult = () => {
       >
         Cambia tema
       </Button>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext value={theme}>
         <UnoptimizedComponent name={name} />
         <Component name={name} config={config} fn={fn} />
-      </ThemeContext.Provider>
+      </ThemeContext>
       <hr className="my-4" />
       <ManuallyMemoizedComponent count={count} />
       <Button onClick={updateCount}>Update count</Button>

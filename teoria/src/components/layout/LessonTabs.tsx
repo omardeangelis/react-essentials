@@ -11,8 +11,8 @@ import {
 type TabsProps = React.ComponentProps<typeof Tabs>
 
 type Props = {
-  risultato: JSX.Element
-  start: JSX.Element
+  risultato: React.ReactNode
+  start: React.ReactNode
 } & TabsProps
 
 export const LessonTabs = (props: Props) => (
@@ -76,7 +76,7 @@ export const LessonTabContentText = ({
   children,
   className,
   ...rest
-}: React.ComponentProps<"div">) => (
+}: React.ComponentPropsWithoutRef<"div">) => (
   <AccordionContent {...rest} className={cn(className, `text-neutral-300`)}>
     {children}
   </AccordionContent>

@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const GenericAvatar = () => (
   <div className="flex items-center">
     <div className="w-12 h-12 rounded-full bg-neutral-200">

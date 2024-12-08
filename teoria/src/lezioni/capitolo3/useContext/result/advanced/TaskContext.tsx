@@ -76,7 +76,7 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
     [state.tasks, dispatch]
   )
 
-  return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
+  return <TaskContext value={value}>{children}</TaskContext>
 }
 
 export const useTasks = () => useContext(TaskContext)

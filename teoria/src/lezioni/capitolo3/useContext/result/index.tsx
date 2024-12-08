@@ -31,12 +31,12 @@ const Item = () => {
 }
 
 const BasicContext = () => (
-  <ThemeContext.Provider value="light">
+  <ThemeContext value="light">
     <Item />
-    <ThemeContext.Provider value="dark">
+    <ThemeContext value="dark">
       <Item />
-    </ThemeContext.Provider>
-  </ThemeContext.Provider>
+    </ThemeContext>
+  </ThemeContext>
 )
 
 const ThemeDynamicContext = createContext<{
@@ -56,11 +56,7 @@ const DynamicProvider = ({
 }) => {
   const [theme, setTheme] = useState<`light` | `dark`>(initialTheme)
   const ctx = useMemo(() => ({ theme, setTheme }), [theme])
-  return (
-    <ThemeDynamicContext.Provider value={ctx}>
-      {children}
-    </ThemeDynamicContext.Provider>
-  )
+  return <ThemeDynamicContext value={ctx}>{children}</ThemeDynamicContext>
 }
 
 const ThemeToggler = () => {
