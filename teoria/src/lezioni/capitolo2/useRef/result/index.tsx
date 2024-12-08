@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ExampleCard } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -133,14 +133,12 @@ const RefForTimout = () => {
   )
 }
 
-const CustomComponent = (
-  {
-    ref,
-    ...props
-  }: { name: string } & {
-    ref: React.RefObject<HTMLInputElement>;
-  }
-) => <Input name={props.name} ref={ref} />
+const CustomComponent = ({
+  ref,
+  ...props
+}: { name: string } & {
+  ref?: React.Ref<HTMLInputElement>
+}) => <Input name={props.name} ref={ref} />
 
 const UseRefForwardRef = () => {
   const inputRef = useRef<HTMLInputElement>(null)

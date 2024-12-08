@@ -11,7 +11,7 @@ const Input = ({
   type,
   ...props
 }: InputProps & {
-  ref?: React.RefObject<HTMLInputElement>
+  ref?: React.Ref<HTMLInputElement>
 }) => (
   <input
     type={type}

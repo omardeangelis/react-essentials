@@ -46,7 +46,7 @@ type TaskCardProps = {
 const TaskCard = ({ task }: TaskCardProps) => {
   const { dispatch } = useTasks()
   const [isEditing, setIsEditing] = useState(false)
-  let taskContent: JSX.Element
+  let taskContent: React.ReactNode
   if (isEditing) {
     taskContent = (
       <Input
