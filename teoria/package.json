@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "echo \"\\033[36mSe vedete alcuni warning dopo il comando di installazione, è perché sto aggiornando il progetto per supportare react 19\\033[0m\""
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
