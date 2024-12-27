@@ -1,3 +1,4 @@
+import { useNavigate, useSearch } from "@tanstack/react-router"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
@@ -6,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion"
+} from "@/components/ui/accordion"
 
 type TabsProps = React.ComponentProps<typeof Tabs>
 
@@ -15,28 +16,49 @@ type Props = {
   start: React.ReactNode
 } & TabsProps
 
-export const LessonTabs = (props: Props) => (
-  <Tabs defaultValue="start" className={cn(`min-w-[678px]`, props.className)}>
-    <TabsList className="w-full">
-      <TabsTrigger className="w-full" value="start">
-        Inizio
-      </TabsTrigger>
-      <TabsTrigger className="w-full" value="risultato">
-        Risultato
-      </TabsTrigger>
-    </TabsList>
-    <TabsContent value="risultato">
-      <Card className="pt-6">
-        <CardContent>{props.risultato}</CardContent>
-      </Card>
-    </TabsContent>
-    <TabsContent value="start">
-      <Card className="pt-6">
-        <CardContent>{props.start}</CardContent>
-      </Card>
-    </TabsContent>
-  </Tabs>
-)
+export const LessonTabs = (props: Props) => {
+  const navigate = useNavigate()
+
+  const search = useSearch({
+    strict: false,
+  })
+  const defaultValue = search.tab || `start`
+
+  const handleChange = (value: string) => {
+    navigate({
+      search: {
+        // @ts-ignore
+        tab: value,
+      },
+    })
+  }
+  return (
+    <Tabs
+      defaultValue={defaultValue}
+      className={cn(`min-w-[678px]`, props.className)}
+      onValueChange={handleChange}
+    >
+      <TabsList className="w-full">
+        <TabsTrigger className="w-full" value="start">
+          Inizio
+        </TabsTrigger>
+        <TabsTrigger className="w-full" value="risultato">
+          Risultato
+        </TabsTrigger>
+      </TabsList>
+      <TabsContent value="risultato">
+        <Card className="pt-6">
+          <CardContent>{props.risultato}</CardContent>
+        </Card>
+      </TabsContent>
+      <TabsContent value="start">
+        <Card className="pt-6">
+          <CardContent>{props.start}</CardContent>
+        </Card>
+      </TabsContent>
+    </Tabs>
+  )
+}
 
 export const LessonTabIntro = ({ children }: { children: React.ReactNode }) => (
   <Accordion

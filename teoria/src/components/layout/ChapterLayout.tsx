@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 
 const getChapter = (pathname: string) => {
   const chapter = pathname.split(`/`)[1]
+  console.log(chapter)
   if (chapter in routesMaps)
     return routesMaps[chapter as keyof typeof routesMaps]
 }
@@ -12,6 +13,7 @@ const getChapter = (pathname: string) => {
 export const ChapterLayout = ({ children }: { children: React.ReactNode }) => {
   const { location } = useRouterState()
   const chapter = getChapter(location.pathname)
+  console.log(chapter, location.pathname)
   return (
     <div className="flex w-full">
       <div className="w-1/5  fixed top-0 left-0 h-full border">

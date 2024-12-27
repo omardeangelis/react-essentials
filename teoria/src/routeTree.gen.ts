@@ -14,9 +14,11 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as CapitoliImport } from './routes/_capitoli'
+import { Route as CapitoliReact19IndexImport } from './routes/_capitoli/react-19/index'
 import { Route as CapitoliCapitolo3IndexImport } from './routes/_capitoli/capitolo3/index'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
+import { Route as CapitoliReact19UseIndexImport } from './routes/_capitoli/react-19/use/index'
 import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli/capitolo3/useMemo/index'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
@@ -68,6 +70,12 @@ const CapitoliCapitolo1IndexLazyRoute = CapitoliCapitolo1IndexLazyImport.update(
   import('./routes/_capitoli/capitolo1/index.lazy').then((d) => d.Route),
 )
 
+const CapitoliReact19IndexRoute = CapitoliReact19IndexImport.update({
+  id: '/react-19/',
+  path: '/react-19/',
+  getParentRoute: () => CapitoliRoute,
+} as any)
+
 const CapitoliCapitolo3IndexRoute = CapitoliCapitolo3IndexImport.update({
   id: '/capitolo3/',
   path: '/capitolo3/',
@@ -94,6 +102,12 @@ const CapitoliCapitolo2UseRefRouteRoute =
     path: '/capitolo2/useRef',
     getParentRoute: () => CapitoliRoute,
   } as any)
+
+const CapitoliReact19UseIndexRoute = CapitoliReact19UseIndexImport.update({
+  id: '/react-19/use/',
+  path: '/react-19/use/',
+  getParentRoute: () => CapitoliRoute,
+} as any)
 
 const CapitoliCapitolo3UseMemoIndexRoute =
   CapitoliCapitolo3UseMemoIndexImport.update({
@@ -260,6 +274,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3IndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/react-19/': {
+      id: '/_capitoli/react-19/'
+      path: '/react-19'
+      fullPath: '/react-19'
+      preLoaderRoute: typeof CapitoliReact19IndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo1/': {
       id: '/_capitoli/capitolo1/'
       path: '/capitolo1'
@@ -386,6 +407,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3UseMemoIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/react-19/use/': {
+      id: '/_capitoli/react-19/use/'
+      path: '/react-19/use'
+      fullPath: '/react-19/use'
+      preLoaderRoute: typeof CapitoliReact19UseIndexImport
+      parentRoute: typeof CapitoliImport
+    }
   }
 }
 
@@ -396,6 +424,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo1NextLazyRoute: typeof CapitoliCapitolo1NextLazyRoute
   CapitoliCapitolo2IndexRoute: typeof CapitoliCapitolo2IndexRoute
   CapitoliCapitolo3IndexRoute: typeof CapitoliCapitolo3IndexRoute
+  CapitoliReact19IndexRoute: typeof CapitoliReact19IndexRoute
   CapitoliCapitolo1IndexLazyRoute: typeof CapitoliCapitolo1IndexLazyRoute
   CapitoliCapitolo1ConditionalRenderingIndexRoute: typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   CapitoliCapitolo1HandleEventsIndexRoute: typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -414,6 +443,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo3UseCallbackIndexRoute: typeof CapitoliCapitolo3UseCallbackIndexRoute
   CapitoliCapitolo3UseContextIndexRoute: typeof CapitoliCapitolo3UseContextIndexRoute
   CapitoliCapitolo3UseMemoIndexRoute: typeof CapitoliCapitolo3UseMemoIndexRoute
+  CapitoliReact19UseIndexRoute: typeof CapitoliReact19UseIndexRoute
 }
 
 const CapitoliRouteChildren: CapitoliRouteChildren = {
@@ -421,6 +451,7 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
   CapitoliCapitolo1NextLazyRoute: CapitoliCapitolo1NextLazyRoute,
   CapitoliCapitolo2IndexRoute: CapitoliCapitolo2IndexRoute,
   CapitoliCapitolo3IndexRoute: CapitoliCapitolo3IndexRoute,
+  CapitoliReact19IndexRoute: CapitoliReact19IndexRoute,
   CapitoliCapitolo1IndexLazyRoute: CapitoliCapitolo1IndexLazyRoute,
   CapitoliCapitolo1ConditionalRenderingIndexRoute:
     CapitoliCapitolo1ConditionalRenderingIndexRoute,
@@ -448,6 +479,7 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
     CapitoliCapitolo3UseCallbackIndexRoute,
   CapitoliCapitolo3UseContextIndexRoute: CapitoliCapitolo3UseContextIndexRoute,
   CapitoliCapitolo3UseMemoIndexRoute: CapitoliCapitolo3UseMemoIndexRoute,
+  CapitoliReact19UseIndexRoute: CapitoliReact19UseIndexRoute,
 }
 
 const CapitoliRouteWithChildren = CapitoliRoute._addFileChildren(
@@ -461,6 +493,7 @@ export interface FileRoutesByFullPath {
   '/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/capitolo2': typeof CapitoliCapitolo2IndexRoute
   '/capitolo3': typeof CapitoliCapitolo3IndexRoute
+  '/react-19': typeof CapitoliReact19IndexRoute
   '/capitolo1': typeof CapitoliCapitolo1IndexLazyRoute
   '/capitolo1/conditional-rendering': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/capitolo1/handle-events': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -479,6 +512,7 @@ export interface FileRoutesByFullPath {
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/react-19/use': typeof CapitoliReact19UseIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -488,6 +522,7 @@ export interface FileRoutesByTo {
   '/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/capitolo2': typeof CapitoliCapitolo2IndexRoute
   '/capitolo3': typeof CapitoliCapitolo3IndexRoute
+  '/react-19': typeof CapitoliReact19IndexRoute
   '/capitolo1': typeof CapitoliCapitolo1IndexLazyRoute
   '/capitolo1/conditional-rendering': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/capitolo1/handle-events': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -506,6 +541,7 @@ export interface FileRoutesByTo {
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/react-19/use': typeof CapitoliReact19UseIndexRoute
 }
 
 export interface FileRoutesById {
@@ -516,6 +552,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/_capitoli/capitolo2/': typeof CapitoliCapitolo2IndexRoute
   '/_capitoli/capitolo3/': typeof CapitoliCapitolo3IndexRoute
+  '/_capitoli/react-19/': typeof CapitoliReact19IndexRoute
   '/_capitoli/capitolo1/': typeof CapitoliCapitolo1IndexLazyRoute
   '/_capitoli/capitolo1/conditional-rendering/': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/_capitoli/capitolo1/handle-events/': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -534,6 +571,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo3/useCallback/': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/_capitoli/capitolo3/useContext/': typeof CapitoliCapitolo3UseContextIndexRoute
   '/_capitoli/capitolo3/useMemo/': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/_capitoli/react-19/use/': typeof CapitoliReact19UseIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -545,6 +583,7 @@ export interface FileRouteTypes {
     | '/capitolo1/next'
     | '/capitolo2'
     | '/capitolo3'
+    | '/react-19'
     | '/capitolo1'
     | '/capitolo1/conditional-rendering'
     | '/capitolo1/handle-events'
@@ -563,6 +602,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useMemo'
+    | '/react-19/use'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -571,6 +611,7 @@ export interface FileRouteTypes {
     | '/capitolo1/next'
     | '/capitolo2'
     | '/capitolo3'
+    | '/react-19'
     | '/capitolo1'
     | '/capitolo1/conditional-rendering'
     | '/capitolo1/handle-events'
@@ -589,6 +630,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useMemo'
+    | '/react-19/use'
   id:
     | '__root__'
     | '/'
@@ -597,6 +639,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo1/next'
     | '/_capitoli/capitolo2/'
     | '/_capitoli/capitolo3/'
+    | '/_capitoli/react-19/'
     | '/_capitoli/capitolo1/'
     | '/_capitoli/capitolo1/conditional-rendering/'
     | '/_capitoli/capitolo1/handle-events/'
@@ -615,6 +658,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo3/useCallback/'
     | '/_capitoli/capitolo3/useContext/'
     | '/_capitoli/capitolo3/useMemo/'
+    | '/_capitoli/react-19/use/'
   fileRoutesById: FileRoutesById
 }
 
@@ -652,6 +696,7 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo1/next",
         "/_capitoli/capitolo2/",
         "/_capitoli/capitolo3/",
+        "/_capitoli/react-19/",
         "/_capitoli/capitolo1/",
         "/_capitoli/capitolo1/conditional-rendering/",
         "/_capitoli/capitolo1/handle-events/",
@@ -669,7 +714,8 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo3/react-memo/",
         "/_capitoli/capitolo3/useCallback/",
         "/_capitoli/capitolo3/useContext/",
-        "/_capitoli/capitolo3/useMemo/"
+        "/_capitoli/capitolo3/useMemo/",
+        "/_capitoli/react-19/use/"
       ]
     },
     "/_capitoli/capitolo2/useRef": {
@@ -686,6 +732,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/capitolo3/": {
       "filePath": "_capitoli/capitolo3/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/": {
+      "filePath": "_capitoli/react-19/index.tsx",
       "parent": "/_capitoli"
     },
     "/_capitoli/capitolo1/": {
@@ -758,6 +808,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/capitolo3/useMemo/": {
       "filePath": "_capitoli/capitolo3/useMemo/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/use/": {
+      "filePath": "_capitoli/react-19/use/index.tsx",
       "parent": "/_capitoli"
     }
   }

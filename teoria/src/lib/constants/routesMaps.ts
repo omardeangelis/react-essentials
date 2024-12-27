@@ -94,6 +94,16 @@ export const routesMaps = {
       label: `useMemo`,
     },
   ],
+  "react-19": [
+    {
+      path: `/react-19`,
+      label: `Overview`,
+    },
+    {
+      path: `/react-19/use`,
+      label: `use`,
+    },
+  ],
 }
 
 export const routesMapKeys = Object.keys(routesMaps) as Array<
