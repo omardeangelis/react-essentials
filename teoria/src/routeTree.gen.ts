@@ -18,6 +18,7 @@ import { Route as CapitoliReact19IndexImport } from './routes/_capitoli/react-19
 import { Route as CapitoliCapitolo3IndexImport } from './routes/_capitoli/capitolo3/index'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
+import { Route as CapitoliReact19UseOptimisticIndexImport } from './routes/_capitoli/react-19/useOptimistic/index'
 import { Route as CapitoliReact19UseActionStateIndexImport } from './routes/_capitoli/react-19/useActionState/index'
 import { Route as CapitoliReact19UseIndexImport } from './routes/_capitoli/react-19/use/index'
 import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli/capitolo3/useMemo/index'
@@ -101,6 +102,13 @@ const CapitoliCapitolo2UseRefRouteRoute =
   CapitoliCapitolo2UseRefRouteImport.update({
     id: '/capitolo2/useRef',
     path: '/capitolo2/useRef',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliReact19UseOptimisticIndexRoute =
+  CapitoliReact19UseOptimisticIndexImport.update({
+    id: '/react-19/useOptimistic/',
+    path: '/react-19/useOptimistic/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -429,6 +437,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliReact19UseActionStateIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/react-19/useOptimistic/': {
+      id: '/_capitoli/react-19/useOptimistic/'
+      path: '/react-19/useOptimistic'
+      fullPath: '/react-19/useOptimistic'
+      preLoaderRoute: typeof CapitoliReact19UseOptimisticIndexImport
+      parentRoute: typeof CapitoliImport
+    }
   }
 }
 
@@ -460,6 +475,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo3UseMemoIndexRoute: typeof CapitoliCapitolo3UseMemoIndexRoute
   CapitoliReact19UseIndexRoute: typeof CapitoliReact19UseIndexRoute
   CapitoliReact19UseActionStateIndexRoute: typeof CapitoliReact19UseActionStateIndexRoute
+  CapitoliReact19UseOptimisticIndexRoute: typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 const CapitoliRouteChildren: CapitoliRouteChildren = {
@@ -498,6 +514,8 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
   CapitoliReact19UseIndexRoute: CapitoliReact19UseIndexRoute,
   CapitoliReact19UseActionStateIndexRoute:
     CapitoliReact19UseActionStateIndexRoute,
+  CapitoliReact19UseOptimisticIndexRoute:
+    CapitoliReact19UseOptimisticIndexRoute,
 }
 
 const CapitoliRouteWithChildren = CapitoliRoute._addFileChildren(
@@ -532,6 +550,7 @@ export interface FileRoutesByFullPath {
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
   '/react-19/use': typeof CapitoliReact19UseIndexRoute
   '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
+  '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -562,6 +581,7 @@ export interface FileRoutesByTo {
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
   '/react-19/use': typeof CapitoliReact19UseIndexRoute
   '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
+  '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRoutesById {
@@ -593,6 +613,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo3/useMemo/': typeof CapitoliCapitolo3UseMemoIndexRoute
   '/_capitoli/react-19/use/': typeof CapitoliReact19UseIndexRoute
   '/_capitoli/react-19/useActionState/': typeof CapitoliReact19UseActionStateIndexRoute
+  '/_capitoli/react-19/useOptimistic/': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -625,6 +646,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useMemo'
     | '/react-19/use'
     | '/react-19/useActionState'
+    | '/react-19/useOptimistic'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -654,6 +676,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useMemo'
     | '/react-19/use'
     | '/react-19/useActionState'
+    | '/react-19/useOptimistic'
   id:
     | '__root__'
     | '/'
@@ -683,6 +706,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo3/useMemo/'
     | '/_capitoli/react-19/use/'
     | '/_capitoli/react-19/useActionState/'
+    | '/_capitoli/react-19/useOptimistic/'
   fileRoutesById: FileRoutesById
 }
 
@@ -740,7 +764,8 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo3/useContext/",
         "/_capitoli/capitolo3/useMemo/",
         "/_capitoli/react-19/use/",
-        "/_capitoli/react-19/useActionState/"
+        "/_capitoli/react-19/useActionState/",
+        "/_capitoli/react-19/useOptimistic/"
       ]
     },
     "/_capitoli/capitolo2/useRef": {
@@ -841,6 +866,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/react-19/useActionState/": {
       "filePath": "_capitoli/react-19/useActionState/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/useOptimistic/": {
+      "filePath": "_capitoli/react-19/useOptimistic/index.tsx",
       "parent": "/_capitoli"
     }
   }

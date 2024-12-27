@@ -107,6 +107,10 @@ export const routesMaps = {
       path: `/react-19/useActionState`,
       label: `useActionState`,
     },
+    {
+      path: `/react-19/useOptimistic`,
+      label: `useOptimistic`,
+    },
   ],
 }
 
