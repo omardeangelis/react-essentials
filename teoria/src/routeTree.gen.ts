@@ -21,6 +21,7 @@ import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/
 import { Route as CapitoliReact19UseOptimisticIndexImport } from './routes/_capitoli/react-19/useOptimistic/index'
 import { Route as CapitoliReact19UseActionStateIndexImport } from './routes/_capitoli/react-19/useActionState/index'
 import { Route as CapitoliReact19UseIndexImport } from './routes/_capitoli/react-19/use/index'
+import { Route as CapitoliCapitolo3UseTransitionIndexImport } from './routes/_capitoli/capitolo3/useTransition/index'
 import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli/capitolo3/useMemo/index'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
@@ -124,6 +125,13 @@ const CapitoliReact19UseIndexRoute = CapitoliReact19UseIndexImport.update({
   path: '/react-19/use/',
   getParentRoute: () => CapitoliRoute,
 } as any)
+
+const CapitoliCapitolo3UseTransitionIndexRoute =
+  CapitoliCapitolo3UseTransitionIndexImport.update({
+    id: '/capitolo3/useTransition/',
+    path: '/capitolo3/useTransition/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
 
 const CapitoliCapitolo3UseMemoIndexRoute =
   CapitoliCapitolo3UseMemoIndexImport.update({
@@ -423,6 +431,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3UseMemoIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/useTransition/': {
+      id: '/_capitoli/capitolo3/useTransition/'
+      path: '/capitolo3/useTransition'
+      fullPath: '/capitolo3/useTransition'
+      preLoaderRoute: typeof CapitoliCapitolo3UseTransitionIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/react-19/use/': {
       id: '/_capitoli/react-19/use/'
       path: '/react-19/use'
@@ -473,6 +488,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo3UseCallbackIndexRoute: typeof CapitoliCapitolo3UseCallbackIndexRoute
   CapitoliCapitolo3UseContextIndexRoute: typeof CapitoliCapitolo3UseContextIndexRoute
   CapitoliCapitolo3UseMemoIndexRoute: typeof CapitoliCapitolo3UseMemoIndexRoute
+  CapitoliCapitolo3UseTransitionIndexRoute: typeof CapitoliCapitolo3UseTransitionIndexRoute
   CapitoliReact19UseIndexRoute: typeof CapitoliReact19UseIndexRoute
   CapitoliReact19UseActionStateIndexRoute: typeof CapitoliReact19UseActionStateIndexRoute
   CapitoliReact19UseOptimisticIndexRoute: typeof CapitoliReact19UseOptimisticIndexRoute
@@ -511,6 +527,8 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
     CapitoliCapitolo3UseCallbackIndexRoute,
   CapitoliCapitolo3UseContextIndexRoute: CapitoliCapitolo3UseContextIndexRoute,
   CapitoliCapitolo3UseMemoIndexRoute: CapitoliCapitolo3UseMemoIndexRoute,
+  CapitoliCapitolo3UseTransitionIndexRoute:
+    CapitoliCapitolo3UseTransitionIndexRoute,
   CapitoliReact19UseIndexRoute: CapitoliReact19UseIndexRoute,
   CapitoliReact19UseActionStateIndexRoute:
     CapitoliReact19UseActionStateIndexRoute,
@@ -548,6 +566,7 @@ export interface FileRoutesByFullPath {
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/capitolo3/useTransition': typeof CapitoliCapitolo3UseTransitionIndexRoute
   '/react-19/use': typeof CapitoliReact19UseIndexRoute
   '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
   '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
@@ -579,6 +598,7 @@ export interface FileRoutesByTo {
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/capitolo3/useTransition': typeof CapitoliCapitolo3UseTransitionIndexRoute
   '/react-19/use': typeof CapitoliReact19UseIndexRoute
   '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
   '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
@@ -611,6 +631,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo3/useCallback/': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/_capitoli/capitolo3/useContext/': typeof CapitoliCapitolo3UseContextIndexRoute
   '/_capitoli/capitolo3/useMemo/': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/_capitoli/capitolo3/useTransition/': typeof CapitoliCapitolo3UseTransitionIndexRoute
   '/_capitoli/react-19/use/': typeof CapitoliReact19UseIndexRoute
   '/_capitoli/react-19/useActionState/': typeof CapitoliReact19UseActionStateIndexRoute
   '/_capitoli/react-19/useOptimistic/': typeof CapitoliReact19UseOptimisticIndexRoute
@@ -644,6 +665,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useMemo'
+    | '/capitolo3/useTransition'
     | '/react-19/use'
     | '/react-19/useActionState'
     | '/react-19/useOptimistic'
@@ -674,6 +696,7 @@ export interface FileRouteTypes {
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useMemo'
+    | '/capitolo3/useTransition'
     | '/react-19/use'
     | '/react-19/useActionState'
     | '/react-19/useOptimistic'
@@ -704,6 +727,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo3/useCallback/'
     | '/_capitoli/capitolo3/useContext/'
     | '/_capitoli/capitolo3/useMemo/'
+    | '/_capitoli/capitolo3/useTransition/'
     | '/_capitoli/react-19/use/'
     | '/_capitoli/react-19/useActionState/'
     | '/_capitoli/react-19/useOptimistic/'
@@ -763,6 +787,7 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo3/useCallback/",
         "/_capitoli/capitolo3/useContext/",
         "/_capitoli/capitolo3/useMemo/",
+        "/_capitoli/capitolo3/useTransition/",
         "/_capitoli/react-19/use/",
         "/_capitoli/react-19/useActionState/",
         "/_capitoli/react-19/useOptimistic/"
@@ -858,6 +883,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/capitolo3/useMemo/": {
       "filePath": "_capitoli/capitolo3/useMemo/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/capitolo3/useTransition/": {
+      "filePath": "_capitoli/capitolo3/useTransition/index.tsx",
       "parent": "/_capitoli"
     },
     "/_capitoli/react-19/use/": {

@@ -93,6 +93,10 @@ export const routesMaps = {
       path: `/capitolo3/useMemo`,
       label: `useMemo`,
     },
+    {
+      path: `/capitolo3/useTransition`,
+      label: `useTransition`,
+    },
   ],
   "react-19": [
     {
