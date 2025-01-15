@@ -14,12 +14,19 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as CapitoliImport } from './routes/_capitoli'
+import { Route as CapitoliReact19IndexImport } from './routes/_capitoli/react-19/index'
 import { Route as CapitoliCapitolo3IndexImport } from './routes/_capitoli/capitolo3/index'
 import { Route as CapitoliCapitolo2IndexImport } from './routes/_capitoli/capitolo2/index'
 import { Route as CapitoliCapitolo2UseRefRouteImport } from './routes/_capitoli/capitolo2/useRef/route'
+import { Route as CapitoliReact19UseOptimisticIndexImport } from './routes/_capitoli/react-19/useOptimistic/index'
+import { Route as CapitoliReact19UseActionStateIndexImport } from './routes/_capitoli/react-19/useActionState/index'
+import { Route as CapitoliReact19UseIndexImport } from './routes/_capitoli/react-19/use/index'
+import { Route as CapitoliCapitolo3UseTransitionIndexImport } from './routes/_capitoli/capitolo3/useTransition/index'
 import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli/capitolo3/useMemo/index'
+import { Route as CapitoliCapitolo3UseDeferredValueIndexImport } from './routes/_capitoli/capitolo3/useDeferredValue/index'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
+import { Route as CapitoliCapitolo3SuspenseIndexImport } from './routes/_capitoli/capitolo3/suspense/index'
 import { Route as CapitoliCapitolo3ReactMemoIndexImport } from './routes/_capitoli/capitolo3/react-memo/index'
 import { Route as CapitoliCapitolo3CustomHooksIndexImport } from './routes/_capitoli/capitolo3/custom-hooks/index'
 import { Route as CapitoliCapitolo2UseEffectIndexImport } from './routes/_capitoli/capitolo2/useEffect/index'
@@ -68,6 +75,12 @@ const CapitoliCapitolo1IndexLazyRoute = CapitoliCapitolo1IndexLazyImport.update(
   import('./routes/_capitoli/capitolo1/index.lazy').then((d) => d.Route),
 )
 
+const CapitoliReact19IndexRoute = CapitoliReact19IndexImport.update({
+  id: '/react-19/',
+  path: '/react-19/',
+  getParentRoute: () => CapitoliRoute,
+} as any)
+
 const CapitoliCapitolo3IndexRoute = CapitoliCapitolo3IndexImport.update({
   id: '/capitolo3/',
   path: '/capitolo3/',
@@ -95,10 +108,44 @@ const CapitoliCapitolo2UseRefRouteRoute =
     getParentRoute: () => CapitoliRoute,
   } as any)
 
+const CapitoliReact19UseOptimisticIndexRoute =
+  CapitoliReact19UseOptimisticIndexImport.update({
+    id: '/react-19/useOptimistic/',
+    path: '/react-19/useOptimistic/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliReact19UseActionStateIndexRoute =
+  CapitoliReact19UseActionStateIndexImport.update({
+    id: '/react-19/useActionState/',
+    path: '/react-19/useActionState/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliReact19UseIndexRoute = CapitoliReact19UseIndexImport.update({
+  id: '/react-19/use/',
+  path: '/react-19/use/',
+  getParentRoute: () => CapitoliRoute,
+} as any)
+
+const CapitoliCapitolo3UseTransitionIndexRoute =
+  CapitoliCapitolo3UseTransitionIndexImport.update({
+    id: '/capitolo3/useTransition/',
+    path: '/capitolo3/useTransition/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
 const CapitoliCapitolo3UseMemoIndexRoute =
   CapitoliCapitolo3UseMemoIndexImport.update({
     id: '/capitolo3/useMemo/',
     path: '/capitolo3/useMemo/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3UseDeferredValueIndexRoute =
+  CapitoliCapitolo3UseDeferredValueIndexImport.update({
+    id: '/capitolo3/useDeferredValue/',
+    path: '/capitolo3/useDeferredValue/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -113,6 +160,13 @@ const CapitoliCapitolo3UseCallbackIndexRoute =
   CapitoliCapitolo3UseCallbackIndexImport.update({
     id: '/capitolo3/useCallback/',
     path: '/capitolo3/useCallback/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3SuspenseIndexRoute =
+  CapitoliCapitolo3SuspenseIndexImport.update({
+    id: '/capitolo3/suspense/',
+    path: '/capitolo3/suspense/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -260,6 +314,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3IndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/react-19/': {
+      id: '/_capitoli/react-19/'
+      path: '/react-19'
+      fullPath: '/react-19'
+      preLoaderRoute: typeof CapitoliReact19IndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo1/': {
       id: '/_capitoli/capitolo1/'
       path: '/capitolo1'
@@ -365,6 +426,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3ReactMemoIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/suspense/': {
+      id: '/_capitoli/capitolo3/suspense/'
+      path: '/capitolo3/suspense'
+      fullPath: '/capitolo3/suspense'
+      preLoaderRoute: typeof CapitoliCapitolo3SuspenseIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo3/useCallback/': {
       id: '/_capitoli/capitolo3/useCallback/'
       path: '/capitolo3/useCallback'
@@ -379,11 +447,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3UseContextIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/useDeferredValue/': {
+      id: '/_capitoli/capitolo3/useDeferredValue/'
+      path: '/capitolo3/useDeferredValue'
+      fullPath: '/capitolo3/useDeferredValue'
+      preLoaderRoute: typeof CapitoliCapitolo3UseDeferredValueIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo3/useMemo/': {
       id: '/_capitoli/capitolo3/useMemo/'
       path: '/capitolo3/useMemo'
       fullPath: '/capitolo3/useMemo'
       preLoaderRoute: typeof CapitoliCapitolo3UseMemoIndexImport
+      parentRoute: typeof CapitoliImport
+    }
+    '/_capitoli/capitolo3/useTransition/': {
+      id: '/_capitoli/capitolo3/useTransition/'
+      path: '/capitolo3/useTransition'
+      fullPath: '/capitolo3/useTransition'
+      preLoaderRoute: typeof CapitoliCapitolo3UseTransitionIndexImport
+      parentRoute: typeof CapitoliImport
+    }
+    '/_capitoli/react-19/use/': {
+      id: '/_capitoli/react-19/use/'
+      path: '/react-19/use'
+      fullPath: '/react-19/use'
+      preLoaderRoute: typeof CapitoliReact19UseIndexImport
+      parentRoute: typeof CapitoliImport
+    }
+    '/_capitoli/react-19/useActionState/': {
+      id: '/_capitoli/react-19/useActionState/'
+      path: '/react-19/useActionState'
+      fullPath: '/react-19/useActionState'
+      preLoaderRoute: typeof CapitoliReact19UseActionStateIndexImport
+      parentRoute: typeof CapitoliImport
+    }
+    '/_capitoli/react-19/useOptimistic/': {
+      id: '/_capitoli/react-19/useOptimistic/'
+      path: '/react-19/useOptimistic'
+      fullPath: '/react-19/useOptimistic'
+      preLoaderRoute: typeof CapitoliReact19UseOptimisticIndexImport
       parentRoute: typeof CapitoliImport
     }
   }
@@ -396,6 +499,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo1NextLazyRoute: typeof CapitoliCapitolo1NextLazyRoute
   CapitoliCapitolo2IndexRoute: typeof CapitoliCapitolo2IndexRoute
   CapitoliCapitolo3IndexRoute: typeof CapitoliCapitolo3IndexRoute
+  CapitoliReact19IndexRoute: typeof CapitoliReact19IndexRoute
   CapitoliCapitolo1IndexLazyRoute: typeof CapitoliCapitolo1IndexLazyRoute
   CapitoliCapitolo1ConditionalRenderingIndexRoute: typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   CapitoliCapitolo1HandleEventsIndexRoute: typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -411,9 +515,15 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo2UseEffectIndexRoute: typeof CapitoliCapitolo2UseEffectIndexRoute
   CapitoliCapitolo3CustomHooksIndexRoute: typeof CapitoliCapitolo3CustomHooksIndexRoute
   CapitoliCapitolo3ReactMemoIndexRoute: typeof CapitoliCapitolo3ReactMemoIndexRoute
+  CapitoliCapitolo3SuspenseIndexRoute: typeof CapitoliCapitolo3SuspenseIndexRoute
   CapitoliCapitolo3UseCallbackIndexRoute: typeof CapitoliCapitolo3UseCallbackIndexRoute
   CapitoliCapitolo3UseContextIndexRoute: typeof CapitoliCapitolo3UseContextIndexRoute
+  CapitoliCapitolo3UseDeferredValueIndexRoute: typeof CapitoliCapitolo3UseDeferredValueIndexRoute
   CapitoliCapitolo3UseMemoIndexRoute: typeof CapitoliCapitolo3UseMemoIndexRoute
+  CapitoliCapitolo3UseTransitionIndexRoute: typeof CapitoliCapitolo3UseTransitionIndexRoute
+  CapitoliReact19UseIndexRoute: typeof CapitoliReact19UseIndexRoute
+  CapitoliReact19UseActionStateIndexRoute: typeof CapitoliReact19UseActionStateIndexRoute
+  CapitoliReact19UseOptimisticIndexRoute: typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 const CapitoliRouteChildren: CapitoliRouteChildren = {
@@ -421,6 +531,7 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
   CapitoliCapitolo1NextLazyRoute: CapitoliCapitolo1NextLazyRoute,
   CapitoliCapitolo2IndexRoute: CapitoliCapitolo2IndexRoute,
   CapitoliCapitolo3IndexRoute: CapitoliCapitolo3IndexRoute,
+  CapitoliReact19IndexRoute: CapitoliReact19IndexRoute,
   CapitoliCapitolo1IndexLazyRoute: CapitoliCapitolo1IndexLazyRoute,
   CapitoliCapitolo1ConditionalRenderingIndexRoute:
     CapitoliCapitolo1ConditionalRenderingIndexRoute,
@@ -444,10 +555,20 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
   CapitoliCapitolo3CustomHooksIndexRoute:
     CapitoliCapitolo3CustomHooksIndexRoute,
   CapitoliCapitolo3ReactMemoIndexRoute: CapitoliCapitolo3ReactMemoIndexRoute,
+  CapitoliCapitolo3SuspenseIndexRoute: CapitoliCapitolo3SuspenseIndexRoute,
   CapitoliCapitolo3UseCallbackIndexRoute:
     CapitoliCapitolo3UseCallbackIndexRoute,
   CapitoliCapitolo3UseContextIndexRoute: CapitoliCapitolo3UseContextIndexRoute,
+  CapitoliCapitolo3UseDeferredValueIndexRoute:
+    CapitoliCapitolo3UseDeferredValueIndexRoute,
   CapitoliCapitolo3UseMemoIndexRoute: CapitoliCapitolo3UseMemoIndexRoute,
+  CapitoliCapitolo3UseTransitionIndexRoute:
+    CapitoliCapitolo3UseTransitionIndexRoute,
+  CapitoliReact19UseIndexRoute: CapitoliReact19UseIndexRoute,
+  CapitoliReact19UseActionStateIndexRoute:
+    CapitoliReact19UseActionStateIndexRoute,
+  CapitoliReact19UseOptimisticIndexRoute:
+    CapitoliReact19UseOptimisticIndexRoute,
 }
 
 const CapitoliRouteWithChildren = CapitoliRoute._addFileChildren(
@@ -461,6 +582,7 @@ export interface FileRoutesByFullPath {
   '/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/capitolo2': typeof CapitoliCapitolo2IndexRoute
   '/capitolo3': typeof CapitoliCapitolo3IndexRoute
+  '/react-19': typeof CapitoliReact19IndexRoute
   '/capitolo1': typeof CapitoliCapitolo1IndexLazyRoute
   '/capitolo1/conditional-rendering': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/capitolo1/handle-events': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -476,9 +598,15 @@ export interface FileRoutesByFullPath {
   '/capitolo2/useEffect': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/capitolo3/custom-hooks': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/capitolo3/react-memo': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/capitolo3/suspense': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
+  '/capitolo3/useDeferredValue': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/capitolo3/useTransition': typeof CapitoliCapitolo3UseTransitionIndexRoute
+  '/react-19/use': typeof CapitoliReact19UseIndexRoute
+  '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
+  '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -488,6 +616,7 @@ export interface FileRoutesByTo {
   '/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/capitolo2': typeof CapitoliCapitolo2IndexRoute
   '/capitolo3': typeof CapitoliCapitolo3IndexRoute
+  '/react-19': typeof CapitoliReact19IndexRoute
   '/capitolo1': typeof CapitoliCapitolo1IndexLazyRoute
   '/capitolo1/conditional-rendering': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/capitolo1/handle-events': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -503,9 +632,15 @@ export interface FileRoutesByTo {
   '/capitolo2/useEffect': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/capitolo3/custom-hooks': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/capitolo3/react-memo': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/capitolo3/suspense': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
+  '/capitolo3/useDeferredValue': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
   '/capitolo3/useMemo': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/capitolo3/useTransition': typeof CapitoliCapitolo3UseTransitionIndexRoute
+  '/react-19/use': typeof CapitoliReact19UseIndexRoute
+  '/react-19/useActionState': typeof CapitoliReact19UseActionStateIndexRoute
+  '/react-19/useOptimistic': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRoutesById {
@@ -516,6 +651,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo1/next': typeof CapitoliCapitolo1NextLazyRoute
   '/_capitoli/capitolo2/': typeof CapitoliCapitolo2IndexRoute
   '/_capitoli/capitolo3/': typeof CapitoliCapitolo3IndexRoute
+  '/_capitoli/react-19/': typeof CapitoliReact19IndexRoute
   '/_capitoli/capitolo1/': typeof CapitoliCapitolo1IndexLazyRoute
   '/_capitoli/capitolo1/conditional-rendering/': typeof CapitoliCapitolo1ConditionalRenderingIndexRoute
   '/_capitoli/capitolo1/handle-events/': typeof CapitoliCapitolo1HandleEventsIndexRoute
@@ -531,9 +667,15 @@ export interface FileRoutesById {
   '/_capitoli/capitolo2/useEffect/': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/_capitoli/capitolo3/custom-hooks/': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/_capitoli/capitolo3/react-memo/': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/_capitoli/capitolo3/suspense/': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/_capitoli/capitolo3/useCallback/': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/_capitoli/capitolo3/useContext/': typeof CapitoliCapitolo3UseContextIndexRoute
+  '/_capitoli/capitolo3/useDeferredValue/': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
   '/_capitoli/capitolo3/useMemo/': typeof CapitoliCapitolo3UseMemoIndexRoute
+  '/_capitoli/capitolo3/useTransition/': typeof CapitoliCapitolo3UseTransitionIndexRoute
+  '/_capitoli/react-19/use/': typeof CapitoliReact19UseIndexRoute
+  '/_capitoli/react-19/useActionState/': typeof CapitoliReact19UseActionStateIndexRoute
+  '/_capitoli/react-19/useOptimistic/': typeof CapitoliReact19UseOptimisticIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -545,6 +687,7 @@ export interface FileRouteTypes {
     | '/capitolo1/next'
     | '/capitolo2'
     | '/capitolo3'
+    | '/react-19'
     | '/capitolo1'
     | '/capitolo1/conditional-rendering'
     | '/capitolo1/handle-events'
@@ -560,9 +703,15 @@ export interface FileRouteTypes {
     | '/capitolo2/useEffect'
     | '/capitolo3/custom-hooks'
     | '/capitolo3/react-memo'
+    | '/capitolo3/suspense'
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
+    | '/capitolo3/useDeferredValue'
     | '/capitolo3/useMemo'
+    | '/capitolo3/useTransition'
+    | '/react-19/use'
+    | '/react-19/useActionState'
+    | '/react-19/useOptimistic'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -571,6 +720,7 @@ export interface FileRouteTypes {
     | '/capitolo1/next'
     | '/capitolo2'
     | '/capitolo3'
+    | '/react-19'
     | '/capitolo1'
     | '/capitolo1/conditional-rendering'
     | '/capitolo1/handle-events'
@@ -586,9 +736,15 @@ export interface FileRouteTypes {
     | '/capitolo2/useEffect'
     | '/capitolo3/custom-hooks'
     | '/capitolo3/react-memo'
+    | '/capitolo3/suspense'
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
+    | '/capitolo3/useDeferredValue'
     | '/capitolo3/useMemo'
+    | '/capitolo3/useTransition'
+    | '/react-19/use'
+    | '/react-19/useActionState'
+    | '/react-19/useOptimistic'
   id:
     | '__root__'
     | '/'
@@ -597,6 +753,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo1/next'
     | '/_capitoli/capitolo2/'
     | '/_capitoli/capitolo3/'
+    | '/_capitoli/react-19/'
     | '/_capitoli/capitolo1/'
     | '/_capitoli/capitolo1/conditional-rendering/'
     | '/_capitoli/capitolo1/handle-events/'
@@ -612,9 +769,15 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo2/useEffect/'
     | '/_capitoli/capitolo3/custom-hooks/'
     | '/_capitoli/capitolo3/react-memo/'
+    | '/_capitoli/capitolo3/suspense/'
     | '/_capitoli/capitolo3/useCallback/'
     | '/_capitoli/capitolo3/useContext/'
+    | '/_capitoli/capitolo3/useDeferredValue/'
     | '/_capitoli/capitolo3/useMemo/'
+    | '/_capitoli/capitolo3/useTransition/'
+    | '/_capitoli/react-19/use/'
+    | '/_capitoli/react-19/useActionState/'
+    | '/_capitoli/react-19/useOptimistic/'
   fileRoutesById: FileRoutesById
 }
 
@@ -652,6 +815,7 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo1/next",
         "/_capitoli/capitolo2/",
         "/_capitoli/capitolo3/",
+        "/_capitoli/react-19/",
         "/_capitoli/capitolo1/",
         "/_capitoli/capitolo1/conditional-rendering/",
         "/_capitoli/capitolo1/handle-events/",
@@ -667,9 +831,15 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo2/useEffect/",
         "/_capitoli/capitolo3/custom-hooks/",
         "/_capitoli/capitolo3/react-memo/",
+        "/_capitoli/capitolo3/suspense/",
         "/_capitoli/capitolo3/useCallback/",
         "/_capitoli/capitolo3/useContext/",
-        "/_capitoli/capitolo3/useMemo/"
+        "/_capitoli/capitolo3/useDeferredValue/",
+        "/_capitoli/capitolo3/useMemo/",
+        "/_capitoli/capitolo3/useTransition/",
+        "/_capitoli/react-19/use/",
+        "/_capitoli/react-19/useActionState/",
+        "/_capitoli/react-19/useOptimistic/"
       ]
     },
     "/_capitoli/capitolo2/useRef": {
@@ -686,6 +856,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/capitolo3/": {
       "filePath": "_capitoli/capitolo3/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/": {
+      "filePath": "_capitoli/react-19/index.tsx",
       "parent": "/_capitoli"
     },
     "/_capitoli/capitolo1/": {
@@ -748,6 +922,10 @@ export const routeTree = rootRoute
       "filePath": "_capitoli/capitolo3/react-memo/index.tsx",
       "parent": "/_capitoli"
     },
+    "/_capitoli/capitolo3/suspense/": {
+      "filePath": "_capitoli/capitolo3/suspense/index.tsx",
+      "parent": "/_capitoli"
+    },
     "/_capitoli/capitolo3/useCallback/": {
       "filePath": "_capitoli/capitolo3/useCallback/index.tsx",
       "parent": "/_capitoli"
@@ -756,8 +934,28 @@ export const routeTree = rootRoute
       "filePath": "_capitoli/capitolo3/useContext/index.tsx",
       "parent": "/_capitoli"
     },
+    "/_capitoli/capitolo3/useDeferredValue/": {
+      "filePath": "_capitoli/capitolo3/useDeferredValue/index.tsx",
+      "parent": "/_capitoli"
+    },
     "/_capitoli/capitolo3/useMemo/": {
       "filePath": "_capitoli/capitolo3/useMemo/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/capitolo3/useTransition/": {
+      "filePath": "_capitoli/capitolo3/useTransition/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/use/": {
+      "filePath": "_capitoli/react-19/use/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/useActionState/": {
+      "filePath": "_capitoli/react-19/useActionState/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/react-19/useOptimistic/": {
+      "filePath": "_capitoli/react-19/useOptimistic/index.tsx",
       "parent": "/_capitoli"
     }
   }

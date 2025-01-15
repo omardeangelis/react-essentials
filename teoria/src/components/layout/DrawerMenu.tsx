@@ -84,6 +84,22 @@ export const SheetMenu = () => (
             </li>
           </Link>
         </SheetClose>
+        <div className="mt-4" />
+        <SheetClose asChild>
+          <Link to="/react-19">
+            <li className="bg-card p-4 rounded-lg border hover:bg-blue-950">
+              <div className="flex items-center justify-between">
+                <p>React 19</p>
+                <div className="bg-blue-900 border border-blue-950 rounded-full text-xs text-white px-2 py-0.5">
+                  <span className="text-xs font-bold text-blue-200">new</span>
+                </div>
+              </div>
+              <p className="text-sm text-neutral-400 mt-2">
+                Nuove Api e Hooks per React 19
+              </p>
+            </li>
+          </Link>
+        </SheetClose>
       </ul>
     </SheetContent>
   </Sheet>

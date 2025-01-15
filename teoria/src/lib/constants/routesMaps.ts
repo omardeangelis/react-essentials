@@ -93,6 +93,36 @@ export const routesMaps = {
       path: `/capitolo3/useMemo`,
       label: `useMemo`,
     },
+    {
+      path: `/capitolo3/useTransition`,
+      label: `useTransition`,
+    },
+    {
+      path: `/capitolo3/useDeferredValue`,
+      label: `useDeferredValue`,
+    },
+    {
+      path: `/capitolo3/suspense`,
+      label: `Suspense`,
+    },
+  ],
+  "react-19": [
+    {
+      path: `/react-19`,
+      label: `Overview`,
+    },
+    {
+      path: `/react-19/use`,
+      label: `use`,
+    },
+    {
+      path: `/react-19/useActionState`,
+      label: `useActionState`,
+    },
+    {
+      path: `/react-19/useOptimistic`,
+      label: `useOptimistic`,
+    },
   ],
 }
 
