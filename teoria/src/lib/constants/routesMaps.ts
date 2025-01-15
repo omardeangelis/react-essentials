@@ -101,6 +101,10 @@ export const routesMaps = {
       path: `/capitolo3/useDeferredValue`,
       label: `useDeferredValue`,
     },
+    {
+      path: `/capitolo3/suspense`,
+      label: `Suspense`,
+    },
   ],
   "react-19": [
     {

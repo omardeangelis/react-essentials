@@ -26,6 +26,7 @@ import { Route as CapitoliCapitolo3UseMemoIndexImport } from './routes/_capitoli
 import { Route as CapitoliCapitolo3UseDeferredValueIndexImport } from './routes/_capitoli/capitolo3/useDeferredValue/index'
 import { Route as CapitoliCapitolo3UseContextIndexImport } from './routes/_capitoli/capitolo3/useContext/index'
 import { Route as CapitoliCapitolo3UseCallbackIndexImport } from './routes/_capitoli/capitolo3/useCallback/index'
+import { Route as CapitoliCapitolo3SuspenseIndexImport } from './routes/_capitoli/capitolo3/suspense/index'
 import { Route as CapitoliCapitolo3ReactMemoIndexImport } from './routes/_capitoli/capitolo3/react-memo/index'
 import { Route as CapitoliCapitolo3CustomHooksIndexImport } from './routes/_capitoli/capitolo3/custom-hooks/index'
 import { Route as CapitoliCapitolo2UseEffectIndexImport } from './routes/_capitoli/capitolo2/useEffect/index'
@@ -159,6 +160,13 @@ const CapitoliCapitolo3UseCallbackIndexRoute =
   CapitoliCapitolo3UseCallbackIndexImport.update({
     id: '/capitolo3/useCallback/',
     path: '/capitolo3/useCallback/',
+    getParentRoute: () => CapitoliRoute,
+  } as any)
+
+const CapitoliCapitolo3SuspenseIndexRoute =
+  CapitoliCapitolo3SuspenseIndexImport.update({
+    id: '/capitolo3/suspense/',
+    path: '/capitolo3/suspense/',
     getParentRoute: () => CapitoliRoute,
   } as any)
 
@@ -418,6 +426,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CapitoliCapitolo3ReactMemoIndexImport
       parentRoute: typeof CapitoliImport
     }
+    '/_capitoli/capitolo3/suspense/': {
+      id: '/_capitoli/capitolo3/suspense/'
+      path: '/capitolo3/suspense'
+      fullPath: '/capitolo3/suspense'
+      preLoaderRoute: typeof CapitoliCapitolo3SuspenseIndexImport
+      parentRoute: typeof CapitoliImport
+    }
     '/_capitoli/capitolo3/useCallback/': {
       id: '/_capitoli/capitolo3/useCallback/'
       path: '/capitolo3/useCallback'
@@ -500,6 +515,7 @@ interface CapitoliRouteChildren {
   CapitoliCapitolo2UseEffectIndexRoute: typeof CapitoliCapitolo2UseEffectIndexRoute
   CapitoliCapitolo3CustomHooksIndexRoute: typeof CapitoliCapitolo3CustomHooksIndexRoute
   CapitoliCapitolo3ReactMemoIndexRoute: typeof CapitoliCapitolo3ReactMemoIndexRoute
+  CapitoliCapitolo3SuspenseIndexRoute: typeof CapitoliCapitolo3SuspenseIndexRoute
   CapitoliCapitolo3UseCallbackIndexRoute: typeof CapitoliCapitolo3UseCallbackIndexRoute
   CapitoliCapitolo3UseContextIndexRoute: typeof CapitoliCapitolo3UseContextIndexRoute
   CapitoliCapitolo3UseDeferredValueIndexRoute: typeof CapitoliCapitolo3UseDeferredValueIndexRoute
@@ -539,6 +555,7 @@ const CapitoliRouteChildren: CapitoliRouteChildren = {
   CapitoliCapitolo3CustomHooksIndexRoute:
     CapitoliCapitolo3CustomHooksIndexRoute,
   CapitoliCapitolo3ReactMemoIndexRoute: CapitoliCapitolo3ReactMemoIndexRoute,
+  CapitoliCapitolo3SuspenseIndexRoute: CapitoliCapitolo3SuspenseIndexRoute,
   CapitoliCapitolo3UseCallbackIndexRoute:
     CapitoliCapitolo3UseCallbackIndexRoute,
   CapitoliCapitolo3UseContextIndexRoute: CapitoliCapitolo3UseContextIndexRoute,
@@ -581,6 +598,7 @@ export interface FileRoutesByFullPath {
   '/capitolo2/useEffect': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/capitolo3/custom-hooks': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/capitolo3/react-memo': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/capitolo3/suspense': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useDeferredValue': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
@@ -614,6 +632,7 @@ export interface FileRoutesByTo {
   '/capitolo2/useEffect': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/capitolo3/custom-hooks': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/capitolo3/react-memo': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/capitolo3/suspense': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/capitolo3/useCallback': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/capitolo3/useContext': typeof CapitoliCapitolo3UseContextIndexRoute
   '/capitolo3/useDeferredValue': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
@@ -648,6 +667,7 @@ export interface FileRoutesById {
   '/_capitoli/capitolo2/useEffect/': typeof CapitoliCapitolo2UseEffectIndexRoute
   '/_capitoli/capitolo3/custom-hooks/': typeof CapitoliCapitolo3CustomHooksIndexRoute
   '/_capitoli/capitolo3/react-memo/': typeof CapitoliCapitolo3ReactMemoIndexRoute
+  '/_capitoli/capitolo3/suspense/': typeof CapitoliCapitolo3SuspenseIndexRoute
   '/_capitoli/capitolo3/useCallback/': typeof CapitoliCapitolo3UseCallbackIndexRoute
   '/_capitoli/capitolo3/useContext/': typeof CapitoliCapitolo3UseContextIndexRoute
   '/_capitoli/capitolo3/useDeferredValue/': typeof CapitoliCapitolo3UseDeferredValueIndexRoute
@@ -683,6 +703,7 @@ export interface FileRouteTypes {
     | '/capitolo2/useEffect'
     | '/capitolo3/custom-hooks'
     | '/capitolo3/react-memo'
+    | '/capitolo3/suspense'
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useDeferredValue'
@@ -715,6 +736,7 @@ export interface FileRouteTypes {
     | '/capitolo2/useEffect'
     | '/capitolo3/custom-hooks'
     | '/capitolo3/react-memo'
+    | '/capitolo3/suspense'
     | '/capitolo3/useCallback'
     | '/capitolo3/useContext'
     | '/capitolo3/useDeferredValue'
@@ -747,6 +769,7 @@ export interface FileRouteTypes {
     | '/_capitoli/capitolo2/useEffect/'
     | '/_capitoli/capitolo3/custom-hooks/'
     | '/_capitoli/capitolo3/react-memo/'
+    | '/_capitoli/capitolo3/suspense/'
     | '/_capitoli/capitolo3/useCallback/'
     | '/_capitoli/capitolo3/useContext/'
     | '/_capitoli/capitolo3/useDeferredValue/'
@@ -808,6 +831,7 @@ export const routeTree = rootRoute
         "/_capitoli/capitolo2/useEffect/",
         "/_capitoli/capitolo3/custom-hooks/",
         "/_capitoli/capitolo3/react-memo/",
+        "/_capitoli/capitolo3/suspense/",
         "/_capitoli/capitolo3/useCallback/",
         "/_capitoli/capitolo3/useContext/",
         "/_capitoli/capitolo3/useDeferredValue/",
@@ -896,6 +920,10 @@ export const routeTree = rootRoute
     },
     "/_capitoli/capitolo3/react-memo/": {
       "filePath": "_capitoli/capitolo3/react-memo/index.tsx",
+      "parent": "/_capitoli"
+    },
+    "/_capitoli/capitolo3/suspense/": {
+      "filePath": "_capitoli/capitolo3/suspense/index.tsx",
       "parent": "/_capitoli"
     },
     "/_capitoli/capitolo3/useCallback/": {
