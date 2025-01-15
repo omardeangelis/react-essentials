@@ -97,6 +97,10 @@ export const routesMaps = {
       path: `/capitolo3/useTransition`,
       label: `useTransition`,
     },
+    {
+      path: `/capitolo3/useDeferredValue`,
+      label: `useDeferredValue`,
+    },
   ],
   "react-19": [
     {
