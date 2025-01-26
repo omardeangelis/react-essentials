@@ -1,4 +1,11 @@
-import { createContext, useContext, useMemo, useState } from "react"
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useMemo,
+  useState,
+} from "react"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -9,10 +16,14 @@ import {
 } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
-const ThemeContext = createContext({
+type ThemeContextType = {
+  theme: string
+  setTheme: Dispatch<SetStateAction<string>>
+}
+
+const ThemeContext = createContext<ThemeContextType>({
   theme: `light`,
-  // eslint-disable-next-line no-unused-vars
-  setTheme: (theme: string) => {},
+  setTheme: () => {},
 })
 
 const ReadContext = () => {

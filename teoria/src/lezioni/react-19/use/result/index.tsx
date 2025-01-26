@@ -1,4 +1,12 @@
-import { createContext, Suspense, use, useMemo, useState } from "react"
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  Suspense,
+  use,
+  useMemo,
+  useState,
+} from "react"
 import { ErrorBoundary } from "react-error-boundary"
 import {
   Card,
@@ -11,10 +19,14 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 
-const ThemeContext = createContext({
+type ThemeContextType = {
+  theme: string
+  setTheme: Dispatch<SetStateAction<string>>
+}
+
+const ThemeContext = createContext<ThemeContextType>({
   theme: `light`,
-  // eslint-disable-next-line no-unused-vars
-  setTheme: (theme: string) => {},
+  setTheme: () => {},
 })
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -88,7 +100,7 @@ const WorkingWithPromise = ({ message }: { message: Promise<string> }) => {
 const promiseWithError = new Promise<{
   message: string
   status: number
-}>((resolve, reject) => {
+}>((_, reject) => {
   setTimeout(() => {
     reject(new Error(`This is the error`))
   }, 5000)
