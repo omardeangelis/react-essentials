@@ -26,6 +26,13 @@ const ThemeContext = createContext<ThemeContextType>({
   setTheme: () => {},
 })
 
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const [theme, setTheme] = useState(`light`)
+
+  const ctx = useMemo(() => ({ theme, setTheme }), [theme, setTheme])
+  return <ThemeContext.Provider value={ctx}>{children}</ThemeContext.Provider>
+}
+
 const ReadContext = () => {
   const ctx = useContext(ThemeContext)
 
@@ -50,13 +57,6 @@ const ReadContext = () => {
       </CardFooter>
     </Card>
   )
-}
-
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState(`light`)
-
-  const ctx = useMemo(() => ({ theme, setTheme }), [theme, setTheme])
-  return <ThemeContext.Provider value={ctx}>{children}</ThemeContext.Provider>
 }
 
 // const fakePromise = new Promise<string>((resolve) => {
