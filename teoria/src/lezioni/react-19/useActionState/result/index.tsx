@@ -41,9 +41,8 @@ const handleCartSubmit = async (
   formData: FormData
 ) => {
   const name = formData.get(`name`) as string
-  console.log(formData.get(`premium`))
-  const declined = formData.get(`premium`) === `on`
-  if (!declined) {
+  const premium = formData.get(`premium`) === `on`
+  if (premium) {
     return {
       message: `${name} aggiunto al carrello`,
       success: true,
@@ -53,14 +52,14 @@ const handleCartSubmit = async (
     setTimeout(resolve, 2000)
   })
   return {
-    message: `Spedizione veloce non disponibile per questo prodotto`,
+    message: `Solo disponibile per i membri premium`,
     success: false,
   }
 }
 
 const CartForm = (props: { premium: boolean }) => {
   const [formState, formAction, isPending] = useActionState(
-    handleCartSubmit.bind(props.premium),
+    handleCartSubmit,
     null
   )
   return (
@@ -74,7 +73,7 @@ const CartForm = (props: { premium: boolean }) => {
               name="premium"
               defaultChecked={props.premium}
             />
-            <p>Spedizione veloce</p>
+            <p>Premium</p>
           </div>
         </div>
         <Button type="submit" disabled={isPending}>
@@ -98,17 +97,10 @@ const CartForm = (props: { premium: boolean }) => {
   )
 }
 
-const StructuredFormExample = () => (
-  <div className="space-y-8">
-    <CartForm premium={false} />
-    <CartForm premium />
-  </div>
-)
-
 export const UseActionStateResult = () => (
   <div className="space-y-8">
     <FormExample />
     <hr />
-    <StructuredFormExample />
+    <CartForm premium />
   </div>
 )
